@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+    <script src="public/scripts/appController.js" charset="utf-8"></script>
+    <!-- NG SERVICE -->
+    <link rel="vendors/bootstrap.min.css" href="/css/master.css">
+    <link rel="vendors/font-awesome.min.css" href="/css/master.css">
+    <!-- <link rel="styles/main.min.css" href="/css/master.css"> -->
+    <title>PetTrax</title>
+  </head>
+  <body ng-app='myApp' ng-controller='appController as ac'>
+    <h1>PetTrax</h1>
+
+    <div>
+      <ng-view></ng-view>
+
+    </div>
+
+  </body>
+</html>
