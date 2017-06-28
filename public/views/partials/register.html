@@ -1,11 +1,53 @@
-<form method="post">
-  <label for="txtFirstName">First: </label>
-  <input type="text" name="txtFirstName" placeholder="first name"><br>
-  <label for="txtLastName">Last: </label>
-  <input type="text" name="txtLastName" placeholder="last name"><br>
-  <label for="hypEmail">Email: </label>
-  <input type="email" name="hypEmail" placeholder="email"><br>
-  <label for="txtPassword">Password: </label>
-  <input type="password" name="txtPassword" placeholder="password"><br>
-  <button type="submit" name="cmdSubmit">REGISTER!</button>
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Register</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">First:</label>
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="first name" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Last:</label>
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="last name" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Email:</label>
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="email address" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">Password:</label>
+  <div class="col-md-4">
+    <input id="passwordinput" name="passwordinput" type="password" placeholder="password" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="cmdRegister"></label>
+  <div class="col-md-8">
+    <button id="cmdRegister" name="cmdRegister" class="btn btn-success">REGISTER!</button>
+    <button id="cmdCancel" name="cmdCancel" class="btn btn-inverse">Cancel</button>
+  </div>
+</div>
+
+</fieldset>
 </form>

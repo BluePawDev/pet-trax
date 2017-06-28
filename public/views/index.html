@@ -4,20 +4,49 @@
     <meta charset="utf-8">
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="vendors/angular-route.min.js" charset="utf-8"></script>
-    <script src="public/scripts/appController.js" charset="utf-8"></script>
-    <!-- NG SERVICE -->
+    <script src="scripts/PetAppController.js" charset="utf-8"></script>
+    <script src="scripts/services/PetAppService.js" charset="utf-8"></script>
     <link rel="vendors/bootstrap.min.css" href="/css/master.css">
-    <link rel="vendors/font-awesome.min.css" href="/css/master.css">
-    <!-- <link rel="styles/main.min.css" href="/css/master.css"> -->
+    <script src="https://use.fontawesome.com/1f88221bb0.js"></script>
+    <!-- <link rel="vendors/font-awesome.min.css" href="/css/master.css"> -->
+    <link rel="stylesheet" href="styles/main.min.css">
+    <link rel="stylesheet" href="styles/photo.css">
+
     <title>PetTrax</title>
   </head>
-  <body ng-app='myApp' ng-controller='appController as ac'>
+  <body ng-app='myApp' ng-controller='PetAppController as pac' id="bgImage">
     <h1>PetTrax</h1>
+    <h3>...because your pet is part of the family!</h3>
 
-    <div>
-      <ng-view></ng-view>
+      <!-- START logIn -->
+      <div class="logIn" ng-show='pac.logInHide'>
+        <label for="hypEmail">Email: </label>
+        <input type="email" name="hypEmail" ng-model='pac.hypEmail' placeholder="email"><br>
+        <label for="txtPassword">Password: </label>
+        <input type="password" name="txtPassword" ng-model='pac.txtPassword' placeholder="password"><br>
+        <button type="button" name="cmdLogIn" ng-click='pac.getUser()'><i class="fa fa-sign-in" aria-hidden="true"></i> LOG IN!</button>
+        <hr>
+        <label for="cmdRegForm">Not a registered user?</label><br>
+        <button type="button" name="cmdRegForm" ng-click='pac.logInFormHide()'><i class="fa fa-user-plus" aria-hidden="true"></i>
+REGISTER HERE!</button>
+      </div>
+      <!-- END logIn -->
 
-    </div>
+      <!-- START userRegister -->
+      <div class="userRegister" ng-hide='pac.logInHide'>
+        <label for="txtFirstName">First: </label>
+        <input type="text" name="txtFirstName" ng-model='pac.txtFirstName' placeholder="first name"><br>
+        <label for="txtLastName">Last: </label>
+        <input type="text" name="txtLastName" ng-model='pac.txtLastName' placeholder="last name"><br>
+        <label for="hypEmail">Email: </label>
+        <input type="email" name="hypEmail" ng-model='pac.hypEmail' placeholder="email"><br>
+        <label for="txtPassword">Password: </label>
+        <input type="password" name="txtPassword" ng-model='pac.txtPassword' placeholder="password"><br>
+        <button type="submit" name="cmdSubmit" ng-click='pac.registerUser()'><i class="fa fa-user-plus" aria-hidden="true"></i> 
+REGISTER!</button>
+      </div>
+      <!-- END userRegister -->
+
 
   </body>
 </html>

@@ -1,18 +1,18 @@
 /* REQUIRES */
 var express = require('express');
-var myApp = express();
-var path = require('path');
-var port = process.env.PORT || 3000;
+var app = express();
+var index = require('./modules/routes/index')
+// var path = require('path');
+
 
 /* USES */
-myApp.use(express.static('public'));
+app.use(express.static('public'));
+app.use('/', index);
 
-// Base URL
-myApp.get('/', function(req, res) {
-	res.sendFile(path.resolve('public/views/index.html'));
-});
+// Globals
+var port = process.env.PORT || 3000;
 
 // Listen
-myApp.listen(port, function() {
-	console.log('listening on:', port);
-});
+app.listen(port, function() {
+	console.log('Listening on port:', port);
+}); // END server spin-up
