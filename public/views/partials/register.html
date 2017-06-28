@@ -1,53 +1,48 @@
+<!-- START Register form -->
 <form class="form-horizontal">
-<fieldset>
+  <fieldset>
 
-<!-- Form Name -->
-<legend>Register</legend>
+    <!-- Form legend -->
+    <legend>Register</legend>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">First:</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="first name" class="form-control input-md" required="">
+      <!-- START txtFirstName input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtFirstName">First: </label>
+        <input ng-model='pac.txtFirstName' id="textinput" name="txtFirstName" type="text" placeholder="first name" class="form-control input-md" required="">
+      </div>
+      <!-- END txtFirstName input -->
 
-  </div>
-</div>
+      <!-- START txtLastName input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtLastName">Last: </label>
+        <input ng-model='pac.txtLastName' id="textinput" name="txtLastName" type="text" placeholder="last name" class="form-control input-md" required="">
+      </div>
+      <!-- END txtLastName input-->
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Last:</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="last name" class="form-control input-md" required="">
+      <!-- START hypEmail input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="hypEmail">Email: </label>
+        <input ng-model='pac.hypEmail' id="textinput" name="hypEmail" type="email" placeholder="email address" class="form-control input-md" required="">
+      </div>
+      <!-- END hypEmail input-->
 
-  </div>
-</div>
+      <!-- START txtPassword input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtPassword">Password: </label>
+          <input ng-model='pac.txtPassword' id="passwordinput" name="txtPassword" type="password" placeholder="password" class="form-control input-md" required="">
+      </div>
+      <!-- END txtPassword input-->
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Email:</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="email address" class="form-control input-md" required="">
+      <!-- START cmdRegister/cmdCancel -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="cmdRegister"></label>
+        <div class="col-md-8">
+          <button ng-click='pac.registerUser()' id="cmdRegister" name="cmdRegister" class="btn btn-success"><i class="fa fa-user-plus" aria-hidden="true"></i> REGISTER!</button>
+          <a href="#!/"><button ng-click='pac.goLogin()' id="cmdCancel" name="cmdCancel" class="btn btn-inverse"><i class="fa fa-hand-paper-o"></i> Cancel</button></a>
+        </div>
+      </div>
+      <!-- END cmdRegister/cmdCancel -->
 
-  </div>
-</div>
-
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="passwordinput">Password:</label>
-  <div class="col-md-4">
-    <input id="passwordinput" name="passwordinput" type="password" placeholder="password" class="form-control input-md" required="">
-
-  </div>
-</div>
-
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="cmdRegister"></label>
-  <div class="col-md-8">
-    <button id="cmdRegister" name="cmdRegister" class="btn btn-success">REGISTER!</button>
-    <button id="cmdCancel" name="cmdCancel" class="btn btn-inverse">Cancel</button>
-  </div>
-</div>
-
-</fieldset>
+    </fieldset>
 </form>
+<!-- END Register form -->

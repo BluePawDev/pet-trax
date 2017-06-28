@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <script src="vendors/angular.min.js" charset="utf-8"></script>
@@ -8,45 +9,40 @@
     <script src="scripts/services/PetAppService.js" charset="utf-8"></script>
     <link rel="vendors/bootstrap.min.css" href="/css/master.css">
     <script src="https://use.fontawesome.com/1f88221bb0.js"></script>
-    <!-- <link rel="vendors/font-awesome.min.css" href="/css/master.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.min.css">
     <link rel="stylesheet" href="styles/photo.css">
-
     <title>PetTrax</title>
   </head>
+
   <body ng-app='myApp' ng-controller='PetAppController as pac' id="bgImage">
-    <h1>PetTrax</h1>
-    <h3>...because your pet is family!</h3>
 
-      <!-- START logIn -->
-      <div class="logIn" ng-show='pac.logInHide'>
-        <label for="hypEmail">Email: </label>
-        <input type="email" name="hypEmail" ng-model='pac.hypEmail' placeholder="email"><br>
-        <label for="txtPassword">Password: </label>
-        <input type="password" name="txtPassword" ng-model='pac.txtPassword' placeholder="password"><br>
-        <button type="button" name="cmdLogIn" ng-click='pac.getUser()'><i class="fa fa-sign-in" aria-hidden="true"></i> LOG IN!</button>
-        <hr>
-        <label for="cmdRegForm">Not a registered user?</label><br>
-        <button type="button" name="cmdRegForm" ng-click='pac.logInFormHide()'><i class="fa fa-user-plus" aria-hidden="true"></i>
-REGISTER HERE!</button>
-      </div>
-      <!-- END logIn -->
+    <!-- START header -->
+    <div class="header">
+      <header>
+        <h1>PetTrax</h1>
+        <h3>...because your pet is family!</h3>
+      </header>
+    </div>
+    <!-- END header -->
 
-      <!-- START userRegister -->
-      <div class="userRegister" ng-hide='pac.logInHide'>
-        <label for="txtFirstName">First: </label>
-        <input type="text" name="txtFirstName" ng-model='pac.txtFirstName' placeholder="first name"><br>
-        <label for="txtLastName">Last: </label>
-        <input type="text" name="txtLastName" ng-model='pac.txtLastName' placeholder="last name"><br>
-        <label for="hypEmail">Email: </label>
-        <input type="email" name="hypEmail" ng-model='pac.hypEmail' placeholder="email"><br>
-        <label for="txtPassword">Password: </label>
-        <input type="password" name="txtPassword" ng-model='pac.txtPassword' placeholder="password"><br>
-        <button type="submit" name="cmdSubmit" ng-click='pac.registerUser()'><i class="fa fa-user-plus" aria-hidden="true"></i>
-REGISTER!</button>
-      </div>
-      <!-- END userRegister -->
 
+    <!-- START ng-view -->
+    <div>
+      <br>
+      <ng-view></ng-view>
+    </div>
+    <!-- END ng-view -->
+
+
+    <!-- START footer -->
+    <div class="footer">
+      <footer>
+        <p>AN ONLINE PET CARE TRACKING RESOURCE!</p>
+        <small>Copyright © 2017 Jason A. Ruby</small>
+      </footer>
+    </div>
+    <!-- END footer -->
 
   </body>
 </html>

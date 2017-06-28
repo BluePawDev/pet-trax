@@ -1,15 +1,28 @@
 // AngularJS
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngRoute']);
+
+myApp.config(function($routeProvider) {
+	$routeProvider.when('/', {
+		templateUrl: 'views/partials/login.html'
+	}).when('/register', {
+		templateUrl: 'views/partials/register.html'
+	});
+});
+
+
 
 // START myApp Controller
 myApp.controller('PetAppController', function(PetAppService) {
 	console.log('In PetAppController');
 	var vm = this;
 
-	vm.logInHide = true;
 
-	vm.logInFormHide = function() {
-		vm.logInHide = !vm.logInHide;
+	vm.registerForm = function() {
+		$routeProvider('/register');
+	};
+
+	vm.goLogin = function() {
+		$routeProvider('/');
 	};
 
 	// START registerUser obj
