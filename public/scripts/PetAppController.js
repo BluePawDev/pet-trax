@@ -12,7 +12,7 @@ myApp.config(function($routeProvider) {
 
 
 // START myApp Controller
-myApp.controller('PetAppController', function(PetAppService) {
+myApp.controller('PetAppController', function(PetAppService, $location) {
 	var vm = this;
 
 

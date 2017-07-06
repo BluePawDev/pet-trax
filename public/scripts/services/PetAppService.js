@@ -1,11 +1,15 @@
-myApp.service('PetAppService', function($http) {
+myApp.service('PetAppService', function($http, $location) {
 	var sv = this;
 
 
 	// START user registration
 	sv.sendRegister = function(newUserCreds) {
 		return $http.post('/register', newUserCreds).then(function(response) {
-			console.log('Server response from user registration', response);
+			console.log(response.data);
+			if (response.data === 'Created') {
+				console.log('YAY!');
+				$location.path('/login');
+			}
 		});
 	}; // END user registration
 

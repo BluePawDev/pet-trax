@@ -9,17 +9,6 @@ var register = require('./modules/routes/register');
 var login = require('./modules/routes/login');
 
 
-/* CONFIG POOL */
-// var config = {
-// 	database: 'dbpets',
-// 	host: 'localhost',
-// 	port: '5432',
-// 	max: 12
-// };
-//
-// var pool = new pg.Pool(config);
-
-
 /* USES for server.js */
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
