@@ -1,15 +1,25 @@
 myApp.service('PetAppService', function($http) {
 	var sv = this;
 
-	sv.getUser = function() {
-		console.log('In PetAppService getUser()');
-	}; // END getUser function
 
-	sv.sendRegister = function(newUserCredentials) {
-		console.log('In PetAppService sendRegister()');
-		return $http.post('/', newUserCredentials).then(function(response) {
-			console.log('Back from register attempt', response);
+	// START user registration
+	sv.sendRegister = function(newUserCreds) {
+		console.log('PetAppService sendRegister()', newUserCreds);
+		return $http.post('/register', newUserCreds).then(function(response) {
+			console.log('Register attempt response:', response);
 		});
-	}; // END registerUser function
+	}; // END user registration
+
+	// START user login
+	sv.logIn = function(credentials) {
+		console.log('In PetAppService logIn()');
+		return $http.post('/login', credentials).then(function(response) {
+			console.log('Login attempt response:', response);
+			if (response.data) {
+				$location.path('/home');
+				return response.data;
+			}
+		})
+	} // END user login
 
 }); // END PetAppService

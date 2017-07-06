@@ -1,6 +1,7 @@
 // AngularJS
 var myApp = angular.module('myApp', ['ngRoute']);
 
+
 myApp.config(function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl: 'views/partials/login.html'
@@ -10,44 +11,32 @@ myApp.config(function($routeProvider) {
 });
 
 
-
 // START myApp Controller
 myApp.controller('PetAppController', function(PetAppService) {
 	console.log('In PetAppController');
 	var vm = this;
 
 
-	vm.registerForm = function() {
-		$routeProvider('/register');
-	};
-
-	vm.goLogin = function() {
-		$routeProvider('/');
-	};
-
 	// START registerUser obj
 	vm.registerUser = function() {
 		console.log('In registerUser');
-		// assemble newUser object
+		// START define newUser obj
 		var newUser = {
 			firstName: vm.txtFirstName,
 			lastName: vm.txtLastName,
 			email: vm.hypEmail,
 			password: vm.txtPassword
-		};
+		}; // END define newUser obj
+		console.log(newUser);
 		PetAppService.sendRegister(newUser).then(function() {
-			console.log('newUser sent to service');
+			console.log('newUser obj sent from controller to service');
 			// Clear inputs
 			// vm.txtFirstName = '';
 			// vm.txtLastName = '';
 			// vm.hypEmail = '';
 			// vm.txtPassword = '';
 		});
-	};
+	}; // END registerUser obj
 
-	vm.getUser = function() {
-		console.log('In PetAppController, getUser()');
-		PetAppService.getUser();
-	};
 
 }); // END myApp Controller

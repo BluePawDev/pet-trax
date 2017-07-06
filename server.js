@@ -2,23 +2,25 @@
 var express = require('express');
 var app = express();
 var pg = require('pg');
+var bodyParser = require('body-parser');
 var index = require('./modules/routes/index')
 var register = require('./modules/routes/register');
 var login = require('./modules/routes/login');
-// var path = require('path');
+
 
 /* CONFIG POOL */
-var config = {
-	database: 'dbpets',
-	host: 'localhost',
-	port: '5432',
-	max: 12
-};
-
-var pool = new pg.Pool(config);
+// var config = {
+// 	database: 'dbpets',
+// 	host: 'localhost',
+// 	port: '5432',
+// 	max: 12
+// };
+//
+// var pool = new pg.Pool(config);
 
 
 /* USES for server.js */
+app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use('/', index);
 app.use('/register', register);

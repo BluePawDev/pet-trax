@@ -16,7 +16,9 @@
     "sql",
     "angular",
     "bootstrap",
-    "sass"
+    "sass",
+    "postgresql",
+    "bcrypt"
   ],
   "author": "jaruby@me.com",
   "license": "ISC",
@@ -27,12 +29,15 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-route": "^1.6.4",
+    "angular-typeahead": "^1.0.2",
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "express": "^4.15.3",
     "font-awesome": "^4.7.0",
     "node": "0.0.0",
     "pg": "^6.4.0",
+    "pg-pool": "^1.8.0",
     "sweetalert": "^1.1.3"
   }
 }
