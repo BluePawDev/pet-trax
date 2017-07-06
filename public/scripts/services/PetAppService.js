@@ -4,8 +4,9 @@ myApp.service('PetAppService', function($http) {
 
 	// START user registration
 	sv.sendRegister = function(newUserCreds) {
-		console.log('PetAppService sendRegister()', newUserCreds);
+		console.log('4. Obj recieved by sendRegister() in PetAppService.js', newUserCreds);
 		return $http.post('/register', newUserCreds).then(function(response) {
+			console.log(newUserCreds);
 			console.log('Register attempt response:', response);
 		});
 	}; // END user registration

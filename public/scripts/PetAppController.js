@@ -13,13 +13,13 @@ myApp.config(function($routeProvider) {
 
 // START myApp Controller
 myApp.controller('PetAppController', function(PetAppService) {
-	console.log('In PetAppController');
+	console.log('1. In PetAppController.js');
 	var vm = this;
 
 
 	// START registerUser obj
 	vm.registerUser = function() {
-		console.log('In registerUser');
+		console.log('2. In registerUser() in PetAppController.js');
 		// START define newUser obj
 		var newUser = {
 			firstName: vm.txtFirstName,
@@ -27,7 +27,7 @@ myApp.controller('PetAppController', function(PetAppService) {
 			email: vm.hypEmail,
 			password: vm.txtPassword
 		}; // END define newUser obj
-		console.log(newUser);
+		console.log('3. Obj to send to PetAppService.js:', newUser);
 		PetAppService.sendRegister(newUser).then(function() {
 			console.log('newUser obj sent from controller to service');
 			// Clear inputs
