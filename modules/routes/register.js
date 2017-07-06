@@ -6,6 +6,14 @@ var bodyParser = require('body-parser');
 var bcrypt = require('bcrypt');
 // var user = require('../user');
 
+
+/* USES for register.js */
+router.use(bodyParser.urlencoded({
+	extended: true
+}));
+router.use(bodyParser.json());
+
+
 /* CONFIG POOL */
 var config = {
 	database: 'dbpets',
@@ -16,7 +24,6 @@ var config = {
 
 var pool = new pg.Pool(config);
 
-router.use(bodyParser.json());
 
 // START user registration POST
 router.post('/', function(req, res) {
@@ -31,9 +38,10 @@ router.post('/', function(req, res) {
 				if (err) {} else {
 					// START generate hash with bcrypt
 					bcrypt.hash(req.body.password, salt, function(err, hash) {
+						// START query for INSERT new user into dB
 						if (err) {
 							res.sendStatus(400);
-						} else { // START query for INSERT new user into dB
+						} else {
 							var first = req.body.firstName;
 							var last = req.body.lastName;
 							var email = req.body.email;
@@ -42,8 +50,8 @@ router.post('/', function(req, res) {
 							done();
 							res.sendStatus(201);
 						} // END query for INSERT new user into dB
-					}) // END generate hash with bcrypt
-				}
+					})
+				} // END generate hash with bcrypt
 			})
 		} // END generate salt with bcrypt
 	}) // END connect to dB
