@@ -1,0 +1,52 @@
+<!-- START petData -->
+<div class="petData_01">
+  <h4>Pet Information</h4>
+  <p><button type="button" name="cmdAddPet" ng-click='pac.newPet()'>New Pet</button>
+  <button type="button" name="cmdEditPet" ng-click='pac.editPet()'>Edit</button></p>
+
+  <p><label for="selPetType">Type: </label>
+  <select class="petType" name="selPetType">
+    <option value="select">Select One</option>
+    <option value="cat">Cat</option>
+    <option value="dog">Dog</option>
+  </select></p>
+
+  <p><label for="selPetBreed">Breed: </label>
+  <select class="petBreed" ng-model='pac.txtPetBreed' name="selPetBreed">
+    <option value="select">Select One</option>
+    <option value="Xiasi">Xiasi</option>
+    <option value="TBD">To be populated via angucomplete-alt</option>
+  </select></p>
+
+  <p><label for="selPetColor">Color: </label>
+  <select class="petColor" ng-model='pac.txtPetColor' name="selPetColor">
+    <option value="select">Select One</option>
+    <option value="Black">Black</option>
+    <option value="Brown">Brown</option>
+    <option value="Choclate">Choclate</option>
+    <option value="TBD">To be populated via angucomplete-alt</option>
+  </select></p>
+
+  <p><label for="selPetMarking">Markings: </label>
+  <select class="petMarking" ng-model='pac.txtPetMarking' name="selPetMarking">
+    <option value="select">Select One</option>
+    <option value="Brindle">Brindle</option>
+    <option value="Dapple">Dapple</option>
+    <option value="Harlequin">Harlequin</option>
+    <option value="dot">To be populated via angucomplete-alt</option>
+  </select></p>
+
+  <p><label for="">Sex: </label>
+  <select class="petSex" name="selPetSex">
+    <option value="select">Select One</option>
+    <option value="Female (intact)">Female (intact)</option>
+    <option value="Female (spayed)">Female (spayed)</option>
+    <option value="Male (intact)">Male (intact)</option>
+    <option value="Male (neutered)">Male (neutered)</option>
+  </select></p>
+
+  <p><label for="dtmPetDOB">DOB: </label>
+  <input type="date" name="dtmPetDOB" value=""></p>
+</div>
+<hr>
+<!-- END petData -->

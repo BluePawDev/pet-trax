@@ -1,0 +1,155 @@
+<h3>Welcome home, [tblOwner.txtFirstName]</h3>
+<br>
+
+<div ng-app='myApp' ng-controller='PetAppController as pac'>
+
+
+  <!-- START owner -->
+  <div class="owner">
+    <p>Owner(s): [tblOwner.txtFirstName] [tblOwner.txtLastName]</p>
+    <p>Email/username: [tblOwner.hypEmail]</p>
+    <p><button type="button" name="cmdEditOwner" ng-click='pac.editOwner()'>Edit</button></p>
+  </div>
+  <hr>
+  <!-- END owner -->
+
+  <!-- <div ng-include="'partials/petdata.html'"></div>
+  <div ng-include="'vetdata.html'"></div>
+  <div ng-include="'pethealth.html'"></div> -->
+
+
+
+  <!-- START petData -->
+  <div class="petData_01">
+    <h4>Pet Information</h4>
+    <p><button type="button" name="cmdAddPet" ng-click='pac.newPet()'>New Pet</button>
+    <button type="button" name="cmdEditPet" ng-click='pac.editPet()'>Edit</button></p>
+
+    <p><label for="txtPetName">Name: </label>
+    <input type="text" ng-model='pac.txtPetName' name="txtPetName" value=""></p>
+
+    <p><label for="selPetType">Type: </label>
+    <select class="petType" ng-model='pac.selPetType' name="selPetType">
+      <option value="select">Select One</option>
+      <option value="Cat">Cat</option>
+      <option value="Dog">Dog</option>
+    </select></p>
+
+    <p>
+      <label for="selPetBreed">Breed: </label>
+      <angucomplete-alt class="inputs" ng-model='pac.txtPetBreed' name="selPetBreed" placeholder="Search breeds" maxlength="36" pause="100" selected-object="selectedDogBreed" local-data="pac.breedDog" search-fields="breed" title-field="breed" minlength="2" input-class="form-control form-control-small" match-class="highlight" override-suggestions="true"></angucomplete-alt>
+    </p>
+
+    <p><label for="selPetColor">Color: </label>
+    <select class="petColor" ng-model='pac.txtPetColor' name="selPetColor">
+      <option value="select">Select One</option>
+      <option value="Black">Black</option>
+      <option value="Brown">Brown</option>
+      <option value="Choclate">Choclate</option>
+      <option value="TBD">To be populated via angucomplete-alt</option>
+    </select></p>
+
+    <p><label for="selPetMarking">Markings: </label>
+    <select class="petMarking" ng-model='pac.txtPetMarking' name="selPetMarking">
+      <option value="select">Select One</option>
+      <option value="Brindle">Brindle</option>
+      <option value="Dapple">Dapple</option>
+      <option value="Harlequin">Harlequin</option>
+      <option value="dot">To be populated via angucomplete-alt</option>
+    </select></p>
+
+    <p><label for="">Sex: </label>
+    <select class="petSex" ng-model='pac.selPetSex' name="selPetSex">
+      <option value="select">Select One</option>
+      <option value="Female (intact)">Female (intact)</option>
+      <option value="Female (spayed)">Female (spayed)</option>
+      <option value="Male (intact)">Male (intact)</option>
+      <option value="Male (neutered)">Male (neutered)</option>
+    </select></p>
+
+    <p><label for="dtmPetDOB">DOB: </label>
+    <input type="date" ng-model='pac.dtmPetDOB' name="dtmPetDOB" value=""></p>
+
+    <p><button type="button" ng-click='pac.addNewPet()' name="cmdAddNewPet">Add Pet</button></p>
+  </div>
+  <hr>
+  <!-- END petData -->
+
+  <!-- START petVetData -->
+  <div class="vetData_01">
+    <h4>Vet Information</h4>
+  <p><button type="button" name="cmdEditVet" ng-click='pac.editVet()'>Edit</button></p>
+
+    <p><label for="txtVetClinic">Clinic: </label>
+    <input type="text" ng-model='pac.txtVetClinic' name="txtVetClinic" value=""></p>
+
+    <p><label for="txtVetDr">Doctor: </label>
+    <input type="text" ng-model='pac.txtVetDr' name="txtVetDr" value=""></p>
+
+    <p><label for="txtVetStreet">Street: </label>
+    <input type="text" ng-model='pac.txtVetStreet' name="txtVetStreet" value=""></p>
+
+    <p><label for="txtVetCity">City: </label>
+    <input type="text" ng-model='pac.txtVetCity' name="txtVetCity" value=""></p>
+
+    <p><label for="txtVetState">State: </label>
+    <input type="text" ng-model='pac.txtVetState' name="txtVetState" value=""></p>
+
+    <p><label for="txtVetZIP">ZIP</label>
+    <input type="text" ng-model='pac.txtVetZIP' name="txtVetZIP" value=""></p>
+
+    <p><label for="telVetPhone">Phone: </label>
+    <input type="tel" ng-model='pac.telVetPhone' name="telVetPhone" value=""></p>
+
+    <p><label for="txtVetEmail">Email: </label>
+    <input type="text" ng-model='pac.txtVetEmail' name="txtVetEmail" value=""></p>
+
+    <p><label for="txtVetURL">Website: </label>
+    <input type="text" ng-model='pac.txtVetURL' name="txtVetURL" value=""></p>
+  </div>
+  <hr>
+  <!-- END petVetData -->
+
+
+  <!-- START petHealth -->
+  <div class="petHealth_01">
+    <h4>Health History</h4>
+    <p><button type="button" name="cmdNewAppt" ng-click='pac.newAppt()'>New Appointment</button></p>
+
+    <!-- START health history table -->
+    <table>
+      <!-- START header row -->
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Vet</th>
+          <th>Purpose</th>
+          <th>Weight</th>
+          <th>Meds</th>
+          <th>Cost</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <!-- END header row -->
+
+      <!-- START data -->
+      <tbody>
+        <tr>
+          <td>07/07/17</td>
+          <td>Marschall Rd</td>
+          <td>Annual checkup</td>
+          <td>53</td>
+          <td>N/A</td>
+          <td>127.53</td>
+          <td>Blue is an idiot, but we love him</td>
+        </tr>
+      </tbody>
+      <!-- END data -->
+    </table>
+    <!-- END health history table -->
+
+  </div>
+  <!-- END petHealth -->
+
+
+</div>

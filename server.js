@@ -7,6 +7,8 @@ var pg = require('pg');
 var index = require('./modules/routes/index')
 var register = require('./modules/routes/register');
 var login = require('./modules/routes/login');
+var home = require('./modules/routes/home');
+var newPet = require('./modules/routes/newPet');
 
 
 /* USES for server.js */
@@ -16,6 +18,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use('/register', register);
 app.use('/login', login);
+app.use('/home', home);
+app.use('/newPet', newPet);
 app.use('/', index);
 
 // Globals
