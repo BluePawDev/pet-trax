@@ -7,7 +7,15 @@ myApp.service('PetAppService', function($http, $location) {
 		return $http.post('/register', newUserCreds).then(function(response) {
 			console.log(response.data);
 			if (response.data === 'Created') {
-				console.log('YAY!'); // REPLACE WITH sweet-alert
+				swal({
+					title: 'HIGH FIVE!',
+					text: "SWEET! You've successfully registered--now go login!",
+					imageUrl: './images/reg-success.jpg',
+					imageWidth: 300,
+					imageHeight: 300,
+					animation: false,
+					customClass: 'animated tada'
+				})
 				$location.path('/');
 			}
 		});
