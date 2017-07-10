@@ -18,9 +18,6 @@ myApp.config(function($routeProvider) {
 // START myApp Controller
 myApp.controller('PetAppController', function(PetAppService, $location) {
 	var vm = this;
-	// vm.userFirst;
-	// vm.userLast;
-	// vm.userEmail;
 
 	vm.breedDog = breedDog;
 	vm.breedCat = breedCat;
@@ -60,7 +57,6 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 	}
 
 	vm.addNewPet = function() {
-		console.log('addNewPet clicked');
 		var newPet = {
 			petName: vm.txtPetName,
 			petType: vm.selPetType,
@@ -68,7 +64,8 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 			petColor: vm.txtPetColor,
 			petMarking: vm.txtPetMarking,
 			petSex: vm.selPetSex,
-			petDOB: vm.dtmPetDOB
+			petDOB: vm.dtmPetDOB,
+			petOwner: vm.userEmail
 		}
 		PetAppService.addNewPet(newPet);
 	}
@@ -81,10 +78,21 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 		console.log('editVet clicked');
 	}
 
-
-	vm.newAppt = function() {
-		console.log('newAppt clicked');
+	vm.saveVet = function() {
+		console.log('saveVet clicked');
 	}
 
+	vm.saveAppt = function() {
+		console.log('saveAppt clicked');
+		var newAppt = {
+			apptDate: vm.dtmApptDate,
+			apptPurp: vm.txtApptPurp,
+			apptWt: vm.intApptWt,
+			apptMeds: vm.txtApptMeds,
+			apptCost: vm.curApptCost,
+			apptNotes: vm.txtApptNotes,
+		}
+		PetAppService.addNewHistory(newAppt);
+	}
 
 }); // END myApp Controller

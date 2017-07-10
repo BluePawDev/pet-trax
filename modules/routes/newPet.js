@@ -41,7 +41,8 @@ router.post('/', function(req, res) {
 			var marking = req.body.petMarking;
 			var sex = req.body.petSex;
 			var dob = req.body.petDOB;
-			connection.query("INSERT INTO tblpet (txtpetname, dtmdob, txttype, txtbreed, txtcolor, txtmarking, txtsex) VALUES ('" + name + "', '" + dob + "', '" + type + "', '" + breed + "', '" + color + "', '" + marking + "', '" + sex + "');");
+			var owner = req.body.petOwner;
+			connection.query("INSERT INTO tblpet (txtpetname, dtmdob, txttype, txtbreed, txtcolor, txtmarking, txtsex, fk_ownerid) VALUES ('" + name + "', '" + dob + "', '" + type + "', '" + breed + "', '" + color + "', '" + marking + "', '" + sex + "', '" + owner + "');");
 			done();
 			res.sendStatus(201);
 		}

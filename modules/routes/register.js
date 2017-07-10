@@ -4,7 +4,6 @@ var router = express.Router();
 var pg = require('pg');
 var bodyParser = require('body-parser');
 var bcrypt = require('bcrypt');
-// var user = require('../user');
 
 
 /* USES for register.js */

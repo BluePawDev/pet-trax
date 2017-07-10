@@ -8,6 +8,7 @@
     <p>Owner(s): {{pac.userFirst}} {{pac.userLast}}</p>
     <p>Email/username: {{pac.userEmail}}</p>
     <p><button type="button" name="cmdEditOwner" ng-click='pac.editOwner()'>Edit</button></p>
+    <p><button type="button" name="cmdAddPet" ng-click='pac.newPet()'>New Pet</button></p>
   </div>
   <hr>
   <!-- END owner -->
@@ -23,7 +24,7 @@
   <!-- START petData -->
   <div class="petData_01">
     <h4>Pet Information</h4>
-    <p><button type="button" name="cmdAddPet" ng-click='pac.newPet()'>New Pet</button>
+    <p>
     <button type="button" name="cmdEditPet" ng-click='pac.editPet()'>Edit</button></p>
 
     <p><label for="txtPetName">Name: </label>
@@ -71,7 +72,7 @@
     <p><label for="dtmPetDOB">DOB: </label>
     <input type="date" ng-model='pac.dtmPetDOB' name="dtmPetDOB" value=""></p>
 
-    <p><button type="button" ng-click='pac.addNewPet()' name="cmdAddNewPet">Add Pet</button></p>
+    <p><button type="button" ng-click='pac.addNewPet()' name="cmdAddNewPet">Save</button></p>
   </div>
   <hr>
   <!-- END petData -->
@@ -79,7 +80,7 @@
   <!-- START petVetData -->
   <div class="vetData_01">
     <h4>Vet Information</h4>
-  <p><button type="button" name="cmdEditVet" ng-click='pac.editVet()'>Edit</button></p>
+  <p><button type="button" name="cmdEditVet" ng-click='pac.editVet()'>Add/Edit</button></p>
 
     <p><label for="txtVetClinic">Clinic: </label>
     <input type="text" ng-model='pac.txtVetClinic' name="txtVetClinic" value=""></p>
@@ -107,6 +108,9 @@
 
     <p><label for="txtVetURL">Website: </label>
     <input type="text" ng-model='pac.txtVetURL' name="txtVetURL" value=""></p>
+
+    <p><button type="button" ng-click='pac.saveVet()' name="cmdSaveVet">Save</button></p>
+
   </div>
   <hr>
   <!-- END petVetData -->
@@ -115,7 +119,7 @@
   <!-- START petHealth -->
   <div class="petHealth_01">
     <h4>Health History</h4>
-    <p><button type="button" name="cmdNewAppt" ng-click='pac.newAppt()'>New Appointment</button></p>
+    <p><button type="button" name="cmdNewAppt" ng-click='pac.newAppt()'>New Record</button></p>
 
     <!-- START health history table -->
     <table>
@@ -136,13 +140,14 @@
       <!-- START data -->
       <tbody>
         <tr>
-          <td>07/07/17</td>
+          <td><input type="date" ng-model='pac.dtmApptDate' name="dtmApptDate" value=""></td>
           <td>Marschall Rd</td>
-          <td>Annual checkup</td>
-          <td>53</td>
-          <td>N/A</td>
-          <td>127.53</td>
-          <td>Blue is an idiot, but we love him</td>
+          <td><input type="text" ng-model='pac.txtApptPurp' name="txtApptPurp" value=""></td>
+          <td><input type="text" ng-model='pac.intApptWt' name="intApptWt" value=""></td>
+          <td><input type="text" ng-model='pac.txtApptMeds' name="txtApptMeds" value=""></td>
+          <td><input type="text" ng-model='pac.curApptCost' name="curApptCost" value=""></td>
+          <td><input type="text" ng-model='pac.txtApptNotes' name="txtApptNotes" value=""></td>
+          <td><button type="button" name="cmdNewAppt" ng-click='pac.saveAppt()'>Save</button></td>
         </tr>
       </tbody>
       <!-- END data -->
