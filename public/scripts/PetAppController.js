@@ -51,8 +51,6 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 			vm.userFirst = res.first;
 			vm.userLast = res.last;
 			vm.userEmail = res.email;
-			// console.log(vm.userFirst, vm.userLast, vm.userEmail);
-			console.log(vm.userFirst);
 			// ADD CLEAR INPUTS ON SUCCESS
 		});
 	};

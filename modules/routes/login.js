@@ -40,11 +40,11 @@ router.post('/', function(req, res) {
 				function(err, result) {
 					if (err) throw err;
 					// START check email
-					if (result.rows[0] === undefined) {
+					if (result.rows[0] == undefined) {
+						console.log(':44', result.rows[0]);
 						res.send('not in system'); // REPLACE WITH SWEETALERT
 					} // END check email IF
 					else {
-						// var userID = result.rows[0].id;
 						var userFName = result.rows[0].txtfirstname;
 						var userLName = result.rows[0].txtlastname;
 						var userEmail = result.rows[0].hypemail;
@@ -56,7 +56,6 @@ router.post('/', function(req, res) {
 								res.send('error');
 							} // END compare password IF
 							else {
-								// console.log('isMatch', isMatch);
 								if (isMatch) {
 									done();
 									res.send(result.rows);

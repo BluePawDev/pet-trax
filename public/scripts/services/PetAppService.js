@@ -35,8 +35,8 @@ myApp.service('PetAppService', function($http, $location) {
 				$location.path('/home');
 				return sv.userCreds;
 			} else if (response.status === 401) {
-				$location.path('/login');
 				alert('wrong pw'); // REPLACE WITH SWEETALERT
+				$location.path('/login');
 			} else {
 				$location.path('/login');
 				console.log('Wrong pw'); // REPLACE WITH SWEETALERT
@@ -45,7 +45,6 @@ myApp.service('PetAppService', function($http, $location) {
 	} // END user login
 
 	sv.addNewPet = function(newPetInfo) {
-		console.log('in PetAppService addNewPet()', newPetInfo);
 		return $http.post('/newPet', newPetInfo).then(function(response) {
 			console.log(response);
 		})
