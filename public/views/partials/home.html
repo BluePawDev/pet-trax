@@ -1,13 +1,13 @@
-<h3>Welcome home, [tblOwner.txtFirstName]</h3>
+<h3>Welcome home, {{pac.userFirst}}</h3>
 <br>
 
-<div ng-app='myApp' ng-controller='PetAppController as pac'>
+<div>
 
 
   <!-- START owner -->
   <div class="owner">
-    <p>Owner(s): [tblOwner.txtFirstName] [tblOwner.txtLastName]</p>
-    <p>Email/username: [tblOwner.hypEmail]</p>
+    <p>Owner(s): {{pac.userFirst}} {{pac.userLast}}</p>
+    <p>Email/username: {{pac.userEmail}}</p>
     <p><button type="button" name="cmdEditOwner" ng-click='pac.editOwner()'>Edit</button></p>
   </div>
   <hr>

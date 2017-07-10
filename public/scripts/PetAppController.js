@@ -2,8 +2,6 @@
 var myApp = angular.module('myApp', ['ngRoute', 'angucomplete-alt']);
 
 
-
-
 myApp.config(function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl: 'views/partials/login.html'
@@ -20,6 +18,9 @@ myApp.config(function($routeProvider) {
 // START myApp Controller
 myApp.controller('PetAppController', function(PetAppService, $location) {
 	var vm = this;
+	// vm.userFirst;
+	// vm.userLast;
+	// vm.userEmail;
 
 	vm.breedDog = breedDog;
 	vm.breedCat = breedCat;
@@ -34,11 +35,8 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 			password: vm.txtPassword
 		}; // END define newUser obj
 		PetAppService.sendRegister(newUser).then(function() {
-			// Clear inputs
-			// vm.txtFirstName = '';
-			// vm.txtLastName = '';
-			// vm.hypEmail = '';
-			// vm.txtPassword = '';
+			// CLEAR INPUTS
+			// vm.txtFirstName = '';...
 		});
 	}; // END registerUser obj
 
@@ -50,8 +48,12 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 			password: vm.txtPassword
 		}; // END define logIn user obj
 		PetAppService.logIn(logInUser).then(function(res) {
-			console.log('Ctrl:', response);
-			// Clear inputs
+			vm.userFirst = res.first;
+			vm.userLast = res.last;
+			vm.userEmail = res.email;
+			// console.log(vm.userFirst, vm.userLast, vm.userEmail);
+			console.log(vm.userFirst);
+			// ADD CLEAR INPUTS ON SUCCESS
 		});
 	};
 
@@ -80,7 +82,6 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 	vm.editVet = function() {
 		console.log('editVet clicked');
 	}
-
 
 
 	vm.newAppt = function() {

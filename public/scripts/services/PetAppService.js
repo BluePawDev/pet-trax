@@ -1,7 +1,6 @@
 myApp.service('PetAppService', function($http, $location) {
 	var sv = this;
 
-
 	// START user registration
 	sv.sendRegister = function(newUserCreds) {
 		return $http.post('/register', newUserCreds).then(function(response) {
@@ -23,19 +22,24 @@ myApp.service('PetAppService', function($http, $location) {
 
 	// START user login
 	sv.logIn = function(credentials) {
-		console.log('In PetAppService logIn()', credentials);
 		return $http.post('/login', credentials).then(function(response) {
-			console.log('Login attempt response:', response);
+			sv.userFirst = response.data[0].txtfirstname;
+			sv.userLast = response.data[0].txtlastname;
+			sv.userEmail = response.data[0].hypemail;
+			sv.userCreds = {
+				first: sv.userFirst,
+				last: sv.userLast,
+				email: sv.userEmail
+			}
 			if (response.status === 200) {
 				$location.path('/home');
-				console.log('Svc:', response);
-				res.send(response);
+				return sv.userCreds;
 			} else if (response.status === 401) {
 				$location.path('/login');
-				alert('wrong pw');
+				alert('wrong pw'); // REPLACE WITH SWEETALERT
 			} else {
 				$location.path('/login');
-				console.log('Wrong pw');
+				console.log('Wrong pw'); // REPLACE WITH SWEETALERT
 			}
 		})
 	} // END user login
