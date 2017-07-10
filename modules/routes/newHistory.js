@@ -23,7 +23,7 @@ var config = {
 var pool = new pg.Pool(config);
 
 
-// START user registration POST
+// START new history POST
 router.post('/', function(req, res) {
 	console.log(req.body);
 	// START connect to dB
@@ -32,19 +32,20 @@ router.post('/', function(req, res) {
 			done();
 			res.send(400);
 		} else {
-			console.log(':35', req.body);
+			// Define data for insert query
 			var date = req.body.apptDate;
 			var purp = req.body.apptPurp;
 			var wt = req.body.apptWt;
 			var meds = req.body.apptMeds;
 			var cost = req.body.apptCost;
 			var notes = req.body.apptNotes;
+			// START insert query syntax
 			connection.query("INSERT INTO tblhistory (dtmdate, txtpurpose, intweight, txtmeds, curcost, txtnotes) VALUES ('" + date + "', '" + purp + "', '" + wt + "', '" + meds + "', '" + cost + "', '" + notes + "');");
+			// END insert query syntax
 			done();
 			res.sendStatus(201);
-
-		} // END query for INSERT new user into dB
-	})
+		} // END insertyquery for new pet history
+	}) // END pool.connect
 }) // END generate hash with bcrypt
 
 

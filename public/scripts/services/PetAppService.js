@@ -54,16 +54,9 @@ myApp.service('PetAppService', function($http, $location) {
 		console.log(newHistory);
 		return $http.post('/newHistory', newHistory).then(function(response) {
 			console.log(response.data);
-			if (response.data === 'Created') {
-				// swal({
-				// 	title: 'HIGH FIVE!',
-				// 	text: "SWEET! You've successfully registered--now go login!",
-				// 	imageUrl: './images/reg-success.jpg',
-				// 	imageWidth: 300,
-				// 	imageHeight: 300,
-				// 	animation: false,
-				// 	customClass: 'animated tada'
-			}
+			// if (response.data === 'Created') {
+			//
+			// }
 			// $location.path('/home');
 		})
 	}

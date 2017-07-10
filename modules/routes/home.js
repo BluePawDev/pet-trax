@@ -23,6 +23,25 @@ var config = {
 
 var pool = new pg.Pool(config);
 
+// START owner/pet history GET
+router.get('/', function(req, res) {
+	console.log(req.body);
+	// START connect to dB
+	pool.connect(function(err, connection, done) {
+		if (err) {
+			done();
+			res.send(400);
+		} else {
+			// Define data for select query
+			var petOwner = req.body.username;
+			// START select query syntax
+			connection.query("SELECT * FROM tblowner JOIN tblpet ON tblowner.hypemail = tblpet.fk_ownerid JOIN tblhistory ON tblpet.id = tblhistory.fk_petid WHERE tblowner.hypemail = '" + petOwner + "');");
+			// END select query syntax
+			done();
+			res.sendStatus(201);
+		} // END select for owner/pet history
+	}) // END pool.connect
+}) // END owner/pet history GET
 
 
 /* EXPORTS for register.js */
