@@ -60,9 +60,18 @@ footer {
   padding    : 1rem;
 }
 
-.inputs {
+angucomplete-alt {
+  width: 500px;
+}
+
+.angucomplete-holder {}
+
+.inputs,
+input {
   font-family: Helvetica, Arial, sans-serif;
   font-size  : 0.8em;
+  // height     : 0.8em;
+  width      : 250px;
 }
 
 .angucomplete-holder {
