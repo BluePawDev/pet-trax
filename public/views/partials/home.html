@@ -16,15 +16,9 @@
 
 <!-- START ng-view -->
 <div>
-  <ng-view></ng-view>
+  <!-- <ng-view></ng-view> -->
 </div>
 <!-- END ng-view -->
-
-
-
-
-  <h3>Welcome home, {{pac.userFirst}}</h3>
-<br>
 
 <div>
 
@@ -40,7 +34,7 @@
 
 
   <!-- START petData -->
-  <div class="petData_01">
+  <!-- <div class="petData_01">
     <h4>Pet Information</h4>
     <p>
     <button type="button" name="cmdEditPet" ng-click='pac.editPet()'>Edit</button></p>
@@ -92,11 +86,11 @@
 
     <p><button type="button" ng-click='pac.addNewPet()' name="cmdAddNewPet">Save</button></p>
   </div>
-  <hr>
+  <hr> -->
   <!-- END petData -->
 
   <!-- START petVetData -->
-  <div class="vetData_01">
+  <!-- <div class="vetData_01">
     <h4>Vet Information</h4>
   <p><button type="button" name="cmdEditVet" ng-click='pac.editVet()'>Add/Edit</button></p>
 
@@ -130,19 +124,19 @@
     <p><button type="button" ng-click='pac.saveVet()' name="cmdSaveVet">Save</button></p>
 
   </div>
-  <hr>
+  <hr> -->
   <!-- END petVetData -->
 
 
   <!-- START petHealth -->
-  <div class="petHealth_01">
+  <!-- <div class="petHealth_01">
     <h4>Health History</h4>
-    <p><button type="button" name="cmdNewAppt" ng-click='pac.newAppt()'>New Record</button></p>
+    <p><button type="button" name="cmdNewAppt" ng-click='pac.newAppt()'>New Record</button></p> -->
 
     <!-- START health history table -->
-    <table>
+    <!-- <table> -->
       <!-- START header row -->
-      <thead>
+      <!-- <thead>
         <tr>
           <th>Date</th>
           <th>Vet</th>
@@ -152,11 +146,11 @@
           <th>Cost</th>
           <th>Notes</th>
         </tr>
-      </thead>
+      </thead> -->
       <!-- END header row -->
 
       <!-- START data -->
-      <tbody>
+      <!-- <tbody>
         <tr>
           <td><input type="date" ng-model='pac.dtmApptDate' name="dtmApptDate" value=""></td>
           <td>Marschall Rd</td>
@@ -167,9 +161,9 @@
           <td><input type="text" ng-model='pac.txtApptNotes' name="txtApptNotes" value=""></td>
           <td><button type="button" name="cmdNewAppt" ng-click='pac.saveAppt()'>Save</button></td>
         </tr>
-      </tbody>
+      </tbody> -->
       <!-- END data -->
-    </table>
+    <!-- </table> -->
     <!-- END health history table -->
 
   </div>

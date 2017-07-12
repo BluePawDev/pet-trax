@@ -6,7 +6,7 @@
     <!-- VENDOR SCRIPTS -->
     <script src='vendors/angular.min.js' charset='utf-8'></script>
     <script src='vendors/angular-route.min.js' charset='utf-8'></script>
-    <script src='vendors/angucomplete-alt.min.js' charset='utf-8'></script>
+    <!-- <script src='vendors/angucomplete-alt.min.js' charset='utf-8'></script> -->
     <script src='https://use.fontawesome.com/1f88221bb0.js'></script>
     <script src='vendors/sweetalert2.min.js' charset='utf-8'></script>
 
@@ -14,19 +14,15 @@
     <link rel='stylesheet' href='vendors/bootstrap.min.css'>
     <link rel='stylesheet' href='vendors/sweetalert2.min.css'>
 
-    <!-- CONTROLLERS/SERVICES -->
+    <!-- CONTROLLERS -->
     <script src='scripts/PetAppController.js' charset='utf-8'></script>
     <script src='scripts/NavController.js' charset='utf-8'></script>
+    <script src='scripts/UserController.js' charset='utf-8'></script>
     <script src='scripts/PetController.js' charset='utf-8'></script>
     <script src='scripts/PetHealthController.js' charset='utf-8'></script>
-    <script src='scripts/UserController.js' charset='utf-8'></script>
 
     <!-- SERVICES -->
     <script src='scripts/services/PetAppService.js' charset='utf-8'></script>
-
-    <!-- LOCAL DATA -->
-    <!-- <script src='scripts/data/breedDog.js' charset='utf-8'></script>
-    <script src='scripts/data/breedCat.js' charset='utf-8'></script> -->
 
     <!-- STYLES -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet'>
@@ -36,26 +32,15 @@
     <title>PetTrax</title>
   </head>
 
-  <body ng-app='myApp' ng-controller='PetAppController as pac' id='bgImage'>
+  <body  id='bgImage'>
 
     <!-- START header -->
-    <div class='header'>
-      <header class='page-header'>
+    <div ng-app='myApp' ng-controller='PetAppController as pac' class='page-header'>
+      <header>
         <img src="images/pettrax-logo-64.png" alt="pet trax">
         <h1>PetTrax</h1>
         <h3>...because your pet is family!</h3>
-
-
-<!-- USER INFO -->
-        <!-- <div ng-controller='UserInfoController as userInfo'>
-          <div>
-            {{userInfo.username}}
-          </div>
-        </div> -->
-
-
       </header>
-
     </div>
     <!-- END header -->
 

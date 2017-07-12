@@ -44,21 +44,21 @@ myApp.service('PetAppService', function($http, $location) {
 		})
 	} // END user login
 
-	sv.addNewPet = function(newPetInfo) {
-		return $http.post('/newPet', newPetInfo).then(function(response) {
-			// console.log(response);
-		})
-	}
+	// sv.addNewPet = function(newPetInfo) {
+	// 	return $http.post('/newPet', newPetInfo).then(function(response) {
+	// 		// console.log(response);
+	// 	})
+	// }
 
-	sv.addNewHistory = function(newHistory) {
-		console.log(newHistory);
-		return $http.post('/newHistory', newHistory).then(function(response) {
-			console.log(response.data);
-			// if (response.data === 'Created') {
-			//
-			// }
-			// $location.path('/home');
-		})
-	}
+	// sv.addNewHistory = function(newHistory) {
+	// 	console.log(newHistory);
+	// 	return $http.post('/newHistory', newHistory).then(function(response) {
+	// 		console.log(response.data);
+	// 		// if (response.data === 'Created') {
+	// 		//
+	// 		// }
+	// 		// $location.path('/home');
+	// 	})
+	// }
 
 }); // END PetAppService

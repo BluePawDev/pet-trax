@@ -11,11 +11,15 @@ myApp.config(function($routeProvider) {
 		templateUrl: 'views/partials/home.html'
 	}).when('/petdata', {
 		templateUrl: 'views/partials/petdata.html'
+	}).when('/user', {
+		templateUrl: 'views/partials/user.html'
+	}).when('/vetdata', {
+		templateUrl: 'views/partials/vetdata.html'
 	});
 });
 
 
-// START myApp Controller
+// START PetAppController
 myApp.controller('PetAppController', function(PetAppService, $location) {
 	var vm = this;
 
@@ -49,47 +53,47 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 		});
 	};
 
-	vm.editOwner = function() {
-		console.log('editOwner clicked');
-	}
+	// vm.editOwner = function() {
+	// 	console.log('editOwner clicked');
+	// }
+	//
+	// vm.addNewPet = function() {
+	// 	var newPet = {
+	// 		petName: vm.txtPetName,
+	// 		petType: vm.selPetType,
+	// 		petBreed: vm.txtPetBreed,
+	// 		petColor: vm.txtPetColor,
+	// 		petMarking: vm.txtPetMarking,
+	// 		petSex: vm.selPetSex,
+	// 		petDOB: vm.dtmPetDOB,
+	// 		petOwner: vm.userEmail
+	// 	}
+	// 	PetAppService.addNewPet(newPet);
+	// }
+	//
+	// vm.editPet = function() {
+	// 	console.log('editPet clicked');
+	// }
+	//
+	// vm.editVet = function() {
+	// 	console.log('editVet clicked');
+	// }
+	//
+	// vm.saveVet = function() {
+	// 	console.log('saveVet clicked');
+	// }
+	//
+	// vm.saveAppt = function() {
+	// 	console.log('saveAppt clicked');
+	// 	var newAppt = {
+	// 		apptDate: vm.dtmApptDate,
+	// 		apptPurp: vm.txtApptPurp,
+	// 		apptWt: vm.intApptWt,
+	// 		apptMeds: vm.txtApptMeds,
+	// 		apptCost: vm.curApptCost,
+	// 		apptNotes: vm.txtApptNotes,
+	// 	}
+	// 	PetAppService.addNewHistory(newAppt);
+	// }
 
-	vm.addNewPet = function() {
-		var newPet = {
-			petName: vm.txtPetName,
-			petType: vm.selPetType,
-			petBreed: vm.txtPetBreed,
-			petColor: vm.txtPetColor,
-			petMarking: vm.txtPetMarking,
-			petSex: vm.selPetSex,
-			petDOB: vm.dtmPetDOB,
-			petOwner: vm.userEmail
-		}
-		PetAppService.addNewPet(newPet);
-	}
-
-	vm.editPet = function() {
-		console.log('editPet clicked');
-	}
-
-	vm.editVet = function() {
-		console.log('editVet clicked');
-	}
-
-	vm.saveVet = function() {
-		console.log('saveVet clicked');
-	}
-
-	vm.saveAppt = function() {
-		console.log('saveAppt clicked');
-		var newAppt = {
-			apptDate: vm.dtmApptDate,
-			apptPurp: vm.txtApptPurp,
-			apptWt: vm.intApptWt,
-			apptMeds: vm.txtApptMeds,
-			apptCost: vm.curApptCost,
-			apptNotes: vm.txtApptNotes,
-		}
-		PetAppService.addNewHistory(newAppt);
-	}
-
-}); // END myApp Controller
+}); // END PetAppController
