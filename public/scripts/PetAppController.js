@@ -1,5 +1,5 @@
 // AngularJS
-var myApp = angular.module('myApp', ['ngRoute', 'angucomplete-alt']);
+var myApp = angular.module('myApp', ['ngRoute']);
 
 
 myApp.config(function($routeProvider) {
@@ -18,9 +18,6 @@ myApp.config(function($routeProvider) {
 // START myApp Controller
 myApp.controller('PetAppController', function(PetAppService, $location) {
 	var vm = this;
-
-	vm.breedDog = breedDog;
-	vm.breedCat = breedCat;
 
 	// START registerUser
 	vm.registerUser = function() {

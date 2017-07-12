@@ -1,24 +1,42 @@
-<h3>Welcome home, {{pac.userFirst}}</h3>
+<div class="homePartial container">
+    <!-- START nav div -->
+    <div ng-controller='NavController as nc' class='container'>
+      <nav class='navbar navbar-light bg-faded'>
+        <ul class='nav nav-pills'>
+          <li role='presentation' class='active'><a href='#'>Home</a></li>
+          <li role='presentation'><a href='#'>Owner</a></li>
+          <li role='presentation'><a href='#'>Pets</a></li>
+          <p class='navbar-text navbar-right'>Signed in as {{USERNAME}}... <a href='#' class='navbar-link'>SIGN OUT</a></p>
+        </ul>
+      </nav>
+    </div>
+    <!-- END nav div -->
+</div>
+<!-- END header div -->
+
+<!-- START ng-view -->
+<div>
+  <ng-view></ng-view>
+</div>
+<!-- END ng-view -->
+
+
+
+
+  <h3>Welcome home, {{pac.userFirst}}</h3>
 <br>
 
 <div>
 
   <!-- START owner -->
-  <div class="owner">
+  <!-- <div class="owner">
     <p>Owner(s): {{pac.userFirst}} {{pac.userLast}}</p>
     <p>Email/username: {{pac.userEmail}}</p>
     <p><button type="button" name="cmdEditOwner" ng-click='pac.editOwner()'>Edit</button></p>
     <p><button type="button" name="cmdAddPet" ng-click='pac.newPet()'>New Pet</button></p>
   </div>
-  <hr>
+  <hr> -->
   <!-- END owner -->
-
-  <!--
-  <div ng-include="'partials/petdata.html'"></div>
-  <div ng-include="'vetdata.html'"></div>
-  <div ng-include="'pethealth.html'"></div>
-  -->
-
 
 
   <!-- START petData -->
