@@ -1,13 +1,8 @@
+<!-- START pets.html -->
 <div>
 
   <h4>Pet Information</h4>
   <p ng-show='pc.petEdit'><button type='button' name='cmdAddPet' ng-click='pc.newPet()'>New Pet</button>
-
-
-
-
-
-  <!-- END display petData -->
 
 
   <!-- START edit petData -->
@@ -69,11 +64,22 @@
   <!-- START display petData -->
   <hr>
   <div ng-init='pc.getPets()'>
-    [Blue] the [dog] is a [10] year old [boxer]
-    [S/he] is [intact/spayed/neutered] and has a [color] coat with [mask] markings
-    <button type="button" name="cmdHistory">History</button>
-    <button type="button" name="cmdEditPet">Edit</button>
+    <div ng-repeat='pet in pc.pets'>
+      <h5>{{pet.txtpetname}}</h5>
+      <p><b>Description: </b></p>
+      <ul>
+        <li>{{pet.txtpetname}} is a {{pet.txtsex | lowercase}} {{pet.txtbreed}}</li>
+        <li ng-if='pet.txtsex == "Female (spayed)" || pet.txtsex == "Female (intact)"'>Born on {{pet.dtmdob | date:'MM/dd/yy'}} she is  {{pet.age.years}} years old</li>
+        <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>Born on {{pet.dtmdob | date:'MM/dd/yy'}} he is  {{pet.age.years}} years old</li>
+        <li ng-if='pet.txtsex == "Female (spayed)" || pet.txtsex == "Female (intact)"'>Her coat is {{pet.txtcolor}} with {{pet.txtmarking}} markings</li>
+        <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>His coat is {{pet.txtcolor}} with {{pet.txtmarking}} markings</li>
+      </ul>
+      <p><button type="button" name="cmdHistory">History</button>
+      <button type="button" name="cmdEditPet">Edit</button></p>
+      <hr>
+    </div>
   </div>
+  <!-- END display petData -->
 
-
-  </div>
+</div>
+<!-- END pets.html -->

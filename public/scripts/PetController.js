@@ -7,12 +7,16 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	// userEmail = RegLoginService.userEmail;
 	vm.userEmail = 'jaruby@me.com';
 
+
+
+
 	// START getPets
 	vm.getPets = function(userEmail) {
-		console.log('in PetController getPets()');
 		console.log('Send:', vm.userEmail);
-		PetService.getPets('jaruby@me.com').then(function() {
-			console.log('back from PetService');
+		PetService.getPets('jaruby@me.com').then(function(petInfo) {
+			vm.pets = petInfo;
+			console.log(vm.pets);
+
 		})
 	}
 	// END getPets

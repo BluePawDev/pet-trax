@@ -23,22 +23,21 @@ var pool = new pg.Pool(config);
 
 // START pets GET
 router.get('/', function(req, res) {
-	console.log('req in pets.js', req.body);
-	// START connect to dB
-	pool.connect(function(err, connection, done) {
-		if (err) {
-			done();
-			res.sendStatus(400);
-		} else {
-			console.log('pet get', req.body);
-			var email = req.body
-			connection.query("SELECT * FROM tblowner JOIN tblpet ON tblowner.hypemail tblpet.fk_ownerid JOIN tblhistory ON tblpet.id = tblhistory.fk_petid;");
-			// connection.query("SELECT * FROM tblowner JOIN tblpet ON tblowner.hypemail tblpet.fk_ownerid JOIN tblhistory ON tblpet.id = tblhistory.fk_petid WHERE tblowner.hypemail = '" + email + "';");
-			done();
-			res.send('query run');
-		}
-	})
-})
+	pool.connect()
+		.then(function(client) {
+			client.query('SELECT id, txtpetname, dtmdob, txttype, txtbreed, txtcolor, txtmarking, txtsex, age(dtmdob) FROM tblpet JOIN tblowner ON tblpet.fk_ownerid = tblowner.hypemail')
+				// client.query('SELECT * FROM tblowner JOIN tblpet ON tblowner.hypemail = tblpet.fk_ownerid JOIN tblhistory ON tblpet.id = tblhistory.fk_petid')
+				.then(function(pets) {
+					client.release();
+					console.log(pets.rows);
+					res.send(pets.rows); // send todos array to client
+				});
+		})
+		.catch(function(err) {
+			client.release();
+			res.sendStatus(500); // server error
+		});
+});
 // END pets GET
 
 /* EXPORTS for pets.js */
