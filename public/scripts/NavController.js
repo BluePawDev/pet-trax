@@ -1,23 +1,17 @@
-// AngularJS
-var myApp = angular.module('myApp');
-
-
-myApp.config(function($routeProvider) {
-	$routeProvider.when('/', {
-		templateUrl: 'views/partials/login.html'
-	}).when('/register', {
-		templateUrl: 'views/partials/register.html'
-	}).when('/home', {
-		templateUrl: 'views/partials/home.html'
-	}).when('/petdata', {
-		templateUrl: 'views/partials/petdata.html'
-	});
-});
-
-
 // START NavController
-myApp.controller('NavController', function($location) {
+myApp.controller('NavController', function(RegLoginService, $location) {
 	var vm = this;
+
+
+
+	vm.navHide = RegLoginService.navHide;
+	console.log('NavController:', vm.navHide);
+
+	vm.userFirst = RegLoginService.userFirst;
+	vm.userLast = RegLoginService.userLast;
+	vm.userEmail = RegLoginService.userEmail;
+	console.log(vm.userFirst, vm.userLast, vm.userEmail);
+
 
 	vm.editPet = function() {
 		console.log('editPet clicked');

@@ -1,26 +1,25 @@
-// AngularJS
-var myApp = angular.module('myApp', ['ngRoute']);
-
-
-myApp.config(function($routeProvider) {
-	$routeProvider.when('/', {
-		templateUrl: 'views/partials/login.html'
-	}).when('/register', {
-		templateUrl: 'views/partials/register.html'
-	}).when('/home', {
-		templateUrl: 'views/partials/home.html'
-	}).when('/petdata', {
-		templateUrl: 'views/partials/petdata.html'
-	});
-});
-
-
 // START PetController
-myApp.controller('PetController', function($location) {
+myApp.controller('PetController', function(PetService, RegLoginService, $location) {
 	var vm = this;
+	vm.petEdit = true;
+	// userEmail = RegLoginService.userEmail;
+	userEmail = 'jaruby@me.com';
+
+	// START getPets
+	vm.getPets = function() {
+		console.log(vm.userEmail);
+		PetService.getPets(userEmail)
+	}
+	// END getPets
 
 	// START addNewPet
-	vm.addNewPet = function() {
+	vm.newPet = function() {
+		vm.petEdit = !vm.petEdit;
+	}
+	// END addNewPet
+
+	vm.addPet = function() {
+		vm.petEdit = false;
 		var newPet = {
 			petName: vm.txtPetName,
 			petType: vm.selPetType,
@@ -31,7 +30,7 @@ myApp.controller('PetController', function($location) {
 			petDOB: vm.dtmPetDOB,
 			petOwner: vm.userEmail
 		}
-		PetAppService.addNewPet(newPet);
+		PetService.addNewPet(newPet);
 	}
 	// END addNewPet
 

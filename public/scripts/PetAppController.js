@@ -19,12 +19,13 @@ myApp.config(function($routeProvider) {
 });
 
 
-// START PetAppController
-myApp.controller('PetAppController', function(PetAppService, $location) {
+// START RegLoginController
+myApp.controller('RegLoginController', function(PetAppService, $location) {
 	var vm = this;
 
 	// START registerUser
 	vm.registerUser = function() {
+		console.log('reg user clicked');
 		// START define newUser obj
 		var newUser = {
 			firstName: vm.txtFirstName,
@@ -32,6 +33,7 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 			email: vm.hypEmail,
 			password: vm.txtPassword
 		}; // END define newUser obj
+		console.log(newUser);
 		PetAppService.sendRegister(newUser).then(function() {
 			// CLEAR INPUTS
 			// vm.txtFirstName = '';...
@@ -96,4 +98,4 @@ myApp.controller('PetAppController', function(PetAppService, $location) {
 	// 	PetAppService.addNewHistory(newAppt);
 	// }
 
-}); // END PetAppController
+}); // END RegLoginController

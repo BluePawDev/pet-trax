@@ -1,48 +1,50 @@
-<!-- START Register form -->
-<form class="form-horizontal">
-  <fieldset>
+<div ng-controller='RegLoginController as rlc'>
+  <!-- START Register form -->
+  <form class="form-horizontal">
+    <fieldset>
 
-    <!-- Form legend -->
-    <legend>Register</legend>
+      <!-- Form legend -->
+      <legend>Register</legend>
 
-      <!-- START txtFirstName input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="txtFirstName">First: </label>
-        <input ng-model='pac.txtFirstName' id="textinput" name="txtFirstName" type="text" placeholder="first name" class="form-control input-md" required="">
-      </div>
-      <!-- END txtFirstName input -->
-
-      <!-- START txtLastName input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="txtLastName">Last: </label>
-        <input ng-model='pac.txtLastName' id="textinput" name="txtLastName" type="text" placeholder="last name" class="form-control input-md" required="">
-      </div>
-      <!-- END txtLastName input-->
-
-      <!-- START hypEmail input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="hypEmail">Email: </label>
-        <input ng-model='pac.hypEmail' id="textinput" name="hypEmail" type="email" placeholder="email address" class="form-control input-md" required="">
-      </div>
-      <!-- END hypEmail input-->
-
-      <!-- START txtPassword input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="txtPassword">Password: </label>
-          <input ng-model='pac.txtPassword' id="passwordinput" name="txtPassword" type="password" placeholder="password" class="form-control input-md" required="">
-      </div>
-      <!-- END txtPassword input-->
-
-      <!-- START cmdRegister/cmdCancel -->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="cmdRegister"></label>
-        <div class="col-md-8">
-          <button ng-click='pac.registerUser()' id="cmdRegister" name="cmdRegister" class="btn btn-success"><i class="fa fa-user-plus" aria-hidden="true"></i> REGISTER!</button>
-          <a href="#!/"><button ng-click='pac.goLogin()' id="cmdCancel" name="cmdCancel" class="btn btn-inverse"><i class="fa fa-hand-paper-o"></i> Cancel</button></a>
+        <!-- START txtFirstName input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="txtFirstName">First: </label>
+          <input ng-model='rlc.txtFirstName' id="textinput" name="txtFirstName" type="text" placeholder="first name" class="form-control input-md" required="">
         </div>
-      </div>
-      <!-- END cmdRegister/cmdCancel -->
+        <!-- END txtFirstName input -->
 
-    </fieldset>
-</form>
-<!-- END Register form -->
+        <!-- START txtLastName input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="txtLastName">Last: </label>
+          <input ng-model='rlc.txtLastName' id="textinput" name="txtLastName" type="text" placeholder="last name" class="form-control input-md" required="">
+        </div>
+        <!-- END txtLastName input-->
+
+        <!-- START hypEmail input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="hypEmail">Email: </label>
+          <input ng-model='rlc.hypEmail' id="textinput" name="hypEmail" type="email" placeholder="email address" class="form-control input-md" required="">
+        </div>
+        <!-- END hypEmail input-->
+
+        <!-- START txtPassword input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="txtPassword">Password: </label>
+            <input ng-model='rlc.txtPassword' id="passwordinput" name="txtPassword" type="password" placeholder="password" class="form-control input-md" required="">
+        </div>
+        <!-- END txtPassword input-->
+
+        <!-- START cmdRegister/cmdCancel -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="cmdRegister"></label>
+          <div class="col-md-8">
+            <button ng-click='rlc.registerUser()' id="cmdRegister" name="cmdRegister" class="btn btn-success"><i class="fa fa-user-plus"></i> REGISTER!</button>
+            <a href="#!/"><button ng-click='rlc.goLogin()' id="cmdCancel" name="cmdCancel" class="btn btn-inverse"><i class="fa fa-hand-paper-o"></i> Cancel</button></a>
+          </div>
+        </div>
+        <!-- END cmdRegister/cmdCancel -->
+
+      </fieldset>
+  </form>
+  <!-- END Register form -->
+</div>

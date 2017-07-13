@@ -1,20 +1,3 @@
-// AngularJS
-var myApp = angular.module('myApp');
-
-
-myApp.config(function($routeProvider) {
-	$routeProvider.when('/', {
-		templateUrl: 'views/partials/login.html'
-	}).when('/register', {
-		templateUrl: 'views/partials/register.html'
-	}).when('/home', {
-		templateUrl: 'views/partials/home.html'
-	}).when('/petdata', {
-		templateUrl: 'views/partials/petdata.html'
-	});
-});
-
-
 // START UserController
 myApp.controller('UserController', function($location) {
 	var vm = this;
