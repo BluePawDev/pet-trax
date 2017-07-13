@@ -2,7 +2,9 @@ myApp.service('PetService', function($http, $location) {
 	var sv = this;
 
 	sv.addNewPet = function(newPetInfo) {
-		return $http.post('/newPet', newPetInfo).then(function(response) {})
+		return $http.post('/newPet', newPetInfo).then(function(response) {
+			console.log(response);
+		})
 	}
 
 	sv.addNewHistory = function(newHistory) {

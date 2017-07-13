@@ -7,16 +7,11 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	// userEmail = RegLoginService.userEmail;
 	vm.userEmail = 'jaruby@me.com';
 
-
-
-
 	// START getPets
 	vm.getPets = function(userEmail) {
 		console.log('Send:', vm.userEmail);
 		PetService.getPets('jaruby@me.com').then(function(petInfo) {
 			vm.pets = petInfo;
-			console.log(vm.pets);
-
 		})
 	}
 	// END getPets
@@ -28,6 +23,7 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	// END addNewPet
 
 	vm.addPet = function() {
+		console.log('in PetController addPet()');
 		vm.petEdit = false;
 		var newPet = {
 			petName: vm.txtPetName,
@@ -39,7 +35,10 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 			petDOB: vm.dtmPetDOB,
 			petOwner: vm.userEmail
 		}
+		console.log('Send to PetService:', newPet);
 		PetService.addNewPet(newPet);
+		vm.newPet();
+		vm.getPets();
 	}
 	// END addNewPet
 
