@@ -26,11 +26,9 @@ router.get('/', function(req, res) {
 	pool.connect()
 		.then(function(client) {
 			client.query('SELECT id, txtpetname, dtmdob, txttype, txtbreed, txtcolor, txtmarking, txtsex, age(dtmdob) FROM tblpet JOIN tblowner ON tblpet.fk_ownerid = tblowner.hypemail')
-				// client.query('SELECT * FROM tblowner JOIN tblpet ON tblowner.hypemail = tblpet.fk_ownerid JOIN tblhistory ON tblpet.id = tblhistory.fk_petid')
 				.then(function(pets) {
 					client.release();
-					console.log(pets.rows);
-					res.send(pets.rows); // send todos array to client
+					res.send(pets.rows);
 				});
 		})
 		.catch(function(err) {

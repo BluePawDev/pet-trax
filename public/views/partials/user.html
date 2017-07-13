@@ -1,6 +1,10 @@
 <!-- START User Partial -->
 <div>
 
+
+
+
+
   <!-- START Display User Info -->
   <div class="userInfoDisplay">
     <p>First name: {{uc.userFirst}}</p>
@@ -11,32 +15,82 @@
   <!-- END Display User Info -->
 
 
-  <!-- START Edit User Info -->
-  <div ng-hide="uc.editUserHide">
+
+  <form editable-form name="editableForm" onaftersave="saveUser()">
+      <div>
+        <!-- editable username (text with validation) -->
+        <span class="title">Pet name: </span>
+        <span editable-text="pc.pet.name" e-name="name" e-placeholder="pet's name" onbeforesave="checkName($data)" e-required>{{ pc.pet.name || 'empty' }}</span>
+      </div>
+
+      <div>
+        <!-- editable status (select-local) -->
+        <span class="title">Status: </span>
+        <span editable-select="user.status" e-name="status" e-ng-options="s.value as s.text for s in statuses">
+          {{ (statuses | filter:{value: user.status})[0].text || 'Not set' }}
+        </span>
+      </div>
+
+      <div>
+        <!-- editable group (select-remote) -->
+        <span class="title">Group: </span>
+        <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-ng-options="g.id as g.text for g in groups">
+          {{ showGroup() }}
+        </span>
+      </div>
+
+      <div class="buttons">
+        <!-- button to show form -->
+        <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+          Edit
+        </button>
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableForm.$visible">
+          <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+            Save
+          </button>
+          <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            Cancel
+          </button>
+        </span>
+      </div>
+    </form>
+
+
+
+
+
+
+<!-- START Edit User Info -->
+<!-- <form editable-form name="userInfoForm"> -->
+  <!-- <div ng-hide="uc.editUserHide"> -->
     <!-- START txtFirstName input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="txtFirstName">First: </label>
-      <input ng-model='rlc.txtFirstName' id="textinput" name="txtFirstName" type="text" class="form-control input-md" required="" value="{{uc.userFirst}}">
-    </div>
+    <!-- <div class="form-group"> -->
+      <!-- <label class="col-md-4 control-label" for="txtFirstName">First: </label> -->
+      <!-- <a href="#" editable-text="user.name" e-label="User Name">{{ user.name || 'empty' }}</a> -->
+      <!-- <input ng-model='rlc.txtFirstName' id="textinput" name="txtFirstName" type="text" class="form-control input-md" required="" value="{{uc.userFirst}}"> -->
+    <!-- </div> -->
     <!-- END txtFirstName input -->
 
     <!-- START txtLastName input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="txtLastName">Last: </label>
-      <input ng-model='rlc.txtLastName' id="textinput" name="txtLastName" type="text" class="form-control input-md" required="" value={{uc.userLast}}>
-    </div>
+    <!-- <div class="form-group"> -->
+      <!-- <label class="col-md-4 control-label" for="txtLastName">Last: </label> -->
+      <!-- <input ng-model='rlc.txtLastName' id="textinput" name="txtLastName" type="text" class="form-control input-md" required="" value={{uc.userLast}}> -->
+    <!-- </div> -->
     <!-- END txtLastName input-->
 
     <!-- START hypEmail input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="hypEmail">Email: </label>
-      <input ng-model='rlc.hypEmail' id="textinput" name="hypEmail" type="email" class="form-control input-md" required="" value="{{uc.userEmail}}">
-    </div>
+    <!-- <div class="form-group"> -->
+      <!-- <label class="col-md-4 control-label" for="hypEmail">Email: </label> -->
+      <!-- <div>Email: <a href="#" editable-email="user.email">{{ user.email || 'empty' }}</a></div> -->
+      <!-- <input ng-model='rlc.hypEmail' id="textinput" name="hypEmail" type="email" class="form-control input-md" required="" value="{{uc.userEmail}}"> -->
+    <!-- </div> -->
     <!-- END hypEmail input-->
-    <button type="button" name="cmdEditUserSave" ng-click='uc.editUserSave()'>Save</button>
-    <button type="button" name="cmdEditUserCancel" ng-click='uc.editUserCancel()'>Cancel</button>
-  </div>
-  <!-- END Edit User Info -->
+    <!-- <button type="button" name="cmdEditUserSave" ng-click='uc.editUserSave()'>Save</button> -->
+    <!-- <button type="button" name="cmdEditUserCancel" ng-click='uc.editUserCancel()'>Cancel</button> -->
+  <!-- </div> -->
+<!-- </form> -->
+<!-- END Edit User Info -->
 
 
 </div>

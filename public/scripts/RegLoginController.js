@@ -27,11 +27,26 @@ myApp.controller('RegLoginController', function(RegLoginService, $location) {
 			password: vm.txtPassword
 		}; // END define logIn user obj
 		RegLoginService.logIn(logInUser).then(function(res) {
-			// vm.userFirst = res.first;
-			// vm.userLast = res.last;
-			// vm.userEmail = res.email;
+			console.log(res);
+			vm.userFirst = res.first;
+			vm.userLast = res.last;
+			vm.userEmail = res.email;
 			// ADD CLEAR INPUTS ON SUCCESS
+			vm.setLogin();
 		});
 	};
+
+	var currentUserSignedIn = false;
+
+	vm.setLogin = function login() {
+		console.log('41', currentUserSignedIn);
+		var onSuccessCallback = function(userData) {
+			console.log('in ctrl', RegLoginService.userCreds);
+			currentUserSignedIn = true;
+			console.log('45', currentUserSignedIn);
+
+
+		}
+	}
 
 }); // END RegLoginController

@@ -1,7 +1,7 @@
 myApp.service('RegLoginService', function($http, $location) {
 	var sv = this;
 
-	sv.navHide = true;
+	sv.navHide;
 
 	// START user registration
 	sv.sendRegister = function(newUserCreds) {
@@ -34,8 +34,7 @@ myApp.service('RegLoginService', function($http, $location) {
 				email: sv.userEmail
 			}
 			if (response.status === 200) {
-				sv.navHide = false;
-				console.log(sv.navHide);
+				console.log(sv.userCreds);
 				$location.path('/user');
 				return sv.userCreds;
 			} else if (response.status === 401) {

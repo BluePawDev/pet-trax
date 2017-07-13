@@ -20,6 +20,7 @@ myApp.service('PetService', function($http, $location) {
 
 	sv.getPets = function(user) {
 		return $http.get('/pets').then(function(response) {
+			console.log(response.data);
 			return response.data;
 		})
 	}
