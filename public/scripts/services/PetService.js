@@ -17,8 +17,9 @@ myApp.service('PetService', function($http, $location) {
 	}
 
 	sv.getPets = function(user) {
-		return $http.get('/', user).then(function(response) {
-			console.log(response);
+		console.log('in PetService getPets() with', user);
+		return $http.get('/pets').then(function(response) {
+			console.log('res:', response);
 		})
 	}
 

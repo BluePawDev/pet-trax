@@ -9,6 +9,7 @@ var register = require('./modules/routes/register');
 var login = require('./modules/routes/login');
 var home = require('./modules/routes/home');
 var newPet = require('./modules/routes/newPet');
+var pets = require('./modules/routes/pets');
 var newHistory = require('./modules/routes/newHistory');
 
 
@@ -17,6 +18,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+
+app.use('/pets', pets);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/home', home);

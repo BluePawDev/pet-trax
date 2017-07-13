@@ -23,19 +23,19 @@ var pool = new pg.Pool(config);
 
 // START pets GET
 router.get('/', function(req, res) {
-	console.log('req in pets.js', req);
+	console.log('req in pets.js', req.body);
 	// START connect to dB
 	pool.connect(function(err, connection, done) {
 		if (err) {
 			done();
 			res.sendStatus(400);
 		} else {
-			console.log(req.body);
+			console.log('pet get', req.body);
 			var email = req.body
-			// connection.query("SELECT * FROM tblowner JOIN tblpet ON tblowner.hypemail tblpet.fk_ownerid JOIN tblhistory ON tblpet.id = tblhistory.fk_petid WHERE tblowner.hypemail = '" + email + "';");
 			connection.query("SELECT * FROM tblowner JOIN tblpet ON tblowner.hypemail tblpet.fk_ownerid JOIN tblhistory ON tblpet.id = tblhistory.fk_petid;");
+			// connection.query("SELECT * FROM tblowner JOIN tblpet ON tblowner.hypemail tblpet.fk_ownerid JOIN tblhistory ON tblpet.id = tblhistory.fk_petid WHERE tblowner.hypemail = '" + email + "';");
 			done();
-			res.sendStatus(201);
+			res.send('query run');
 		}
 	})
 })

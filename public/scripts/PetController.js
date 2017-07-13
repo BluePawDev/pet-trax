@@ -1,14 +1,19 @@
 // START PetController
 myApp.controller('PetController', function(PetService, RegLoginService, $location) {
+
 	var vm = this;
+
 	vm.petEdit = true;
 	// userEmail = RegLoginService.userEmail;
-	userEmail = 'jaruby@me.com';
+	vm.userEmail = 'jaruby@me.com';
 
 	// START getPets
-	vm.getPets = function() {
-		console.log(vm.userEmail);
-		PetService.getPets(userEmail)
+	vm.getPets = function(userEmail) {
+		console.log('in PetController getPets()');
+		console.log('Send:', vm.userEmail);
+		PetService.getPets('jaruby@me.com').then(function() {
+			console.log('back from PetService');
+		})
 	}
 	// END getPets
 

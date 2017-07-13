@@ -1,17 +1,25 @@
 // START UserController
-myApp.controller('UserController', function($location) {
+myApp.controller('UserController', function(RegLoginService, $location) {
 	var vm = this;
 
-	vm.editPet = function() {
-		console.log('editPet clicked');
+	vm.userFirst = RegLoginService.userFirst;
+	vm.userLast = RegLoginService.userLast;
+	vm.userEmail = RegLoginService.userEmail;
+	vm.editUserHide = true;
+
+	vm.editUser = function() {
+		vm.editUserHide = !vm.editUserHide;
+		console.log(vm.editUserHide);
 	}
 
-	vm.editVet = function() {
-		console.log('editVet clicked');
+	vm.editUserSave = function() {
+		console.log('User edit save');
+		vm.editUserHide = !vm.editUserHide;
 	}
 
-	vm.saveVet = function() {
-		console.log('saveVet clicked');
+	vm.editUserCancel = function() {
+		console.log('User edit cancel');
+		vm.editUserHide = !vm.editUserHide;
 	}
 
 }); // END UserController
