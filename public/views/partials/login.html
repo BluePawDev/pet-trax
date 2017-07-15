@@ -1,5 +1,5 @@
 <!-- START login div -->
-<div>
+<div class='formLoginReg'>
   <!-- START Log-in form -->
   <form class="form-horizontal">
     <fieldset>
@@ -9,32 +9,33 @@
 
         <!-- START Email input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput">Email:</label>
-          <input ng-model='rlc.hypEmail' id="textinput" name="hypEmail" type="email" placeholder="email address" class="form-control input-md" required="">
+          <p class='logInGrp'><label class="col-md-4 control-label" for="textinput">Email:</label>
+          <input ng-model='rlc.hypEmail' id="textinput" name="hypEmail" type="email" placeholder="email address" class="form-control input-md logInField" required=""></p>
         </div>
         <!-- END Email input -->
 
         <!-- START Password input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="txtPassword">Password:</label>
-            <input ng-model='rlc.txtPassword' id="passwordinput" name="txtPassword" type="password" placeholder="password" class="form-control input-md" required="">
+            <input ng-model='rlc.txtPassword' id="passwordinput" name="txtPassword" type="password" placeholder="password" class="form-control input-md logInField" required="">
         </div>
         <!-- END Password input -->
 
         <!-- START Log-in button -->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="cmdLogIn"></label><br>
-            <button id="cmdLogIn" name="cmdLogIn" class="btn btn-success" ng-click='rlc.logIn()'><i class="fa fa-sign-in" aria-hidden="true"></i> LOG IN!</button>
+          <p class='logInBtn'><label class="col-md-4 control-label" for="cmdLogIn"></label><br>
+            <button id="cmdLogIn" name="cmdLogIn" class="btn btn-success" ng-click='rlc.logIn()'><i class="fa fa-sign-in"></i> LOG IN!</button></p>
+
         </div>
         <!-- END Log-in button -->
 
         <!-- START Register prompt -->
-        <div class="form-group">
+        <div class="form-group regPrompt">
           <hr>
           <br>
-          <label for="cmdRegForm">Not a registered user?</label><br>
-          <div class="col-md-4">
-            <a href="#!/register"><button type="button" name="cmdRegForm" ng-click='rlc.registerForm()'><i class="fa fa-user-plus" aria-hidden="true"></i>
+          <label for="cmdRegForm"><h3>Not a registered user?</h3></label><br>
+          <div class="col-md-4 regBtn">
+            <a href="#!/register"><button type="button" name="cmdRegForm" ng-click='rlc.registerForm()'><i class="fa fa-user-plus"></i>
         REGISTER HERE!</button></a>
           </div>
         </div>

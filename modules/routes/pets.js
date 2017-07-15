@@ -2,8 +2,9 @@
 var express = require('express');
 var path = require('path');
 var router = express.Router();
-var pg = require('pg');
 var bodyParser = require('body-parser');
+var pg = require('pg');
+
 
 /* USES for pets.js */
 router.use(bodyParser.urlencoded({
@@ -21,8 +22,30 @@ var config = {
 
 var pool = new pg.Pool(config);
 
-// START pets GET
-router.get('/', function(req, res) {
+// START get pets POST
+router.post('/', function(req, res) {
+	console.log(req.body);
+	var user = req.body; // data from the client
+
+	// do database query to make a new todo
+	pool.connect()
+		.then(function(client) {
+			client.query("SELECT id, txtpetname, dtmdob, txttype, txtbreed, txtcolor, txtmarking, txtsex, age(dtmdob), fk_ownerid FROM tblpet JOIN tblowner ON tblpet.fk_ownerid = tblowner.hypemail WHERE fk_ownerid = '" + req.body.address + "'")
+				.then(function(pets) {
+					client.release();
+					res.send(pets.rows); // created
+				});
+		})
+		.catch(function(err) {
+			client.release();
+			res.sendStatus(500); // server error
+		});
+});
+// END get pets POST
+
+
+// START update pets PUT
+router.put('/', function(req, res) {
 	pool.connect()
 		.then(function(client) {
 			client.query('SELECT id, txtpetname, dtmdob, txttype, txtbreed, txtcolor, txtmarking, txtsex, age(dtmdob) FROM tblpet JOIN tblowner ON tblpet.fk_ownerid = tblowner.hypemail')
@@ -36,7 +59,8 @@ router.get('/', function(req, res) {
 			res.sendStatus(500); // server error
 		});
 });
-// END pets GET
+// END update pets PUT
+
 
 /* EXPORTS for pets.js */
 module.exports = router;

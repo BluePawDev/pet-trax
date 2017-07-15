@@ -1,0 +1,101 @@
+input {
+  width: 100px;
+}
+
+.userEditInfo {
+  background-color: white;
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px;
+  box-shadow: 7px 9px 13px rgba(0, 0, 0, 0.8);
+}
+
+.userEditField {
+  width: 60%;
+}
+
+.view {
+  width: 70%;
+  margin: 0 auto;
+  /*border: 1px white solid;*/
+}
+
+.formLoginReg, .regPrompt {
+  width: 70%;
+  margin: 0 auto;
+  /*border: 1px white solid;*/
+}
+
+.form-horizontal {
+  width: 50%;
+}
+
+h4 {
+  text-align: left;
+  margin-left: 3%;
+  font-weight: 600;
+}
+
+
+/*.logInForm .regForm {
+  width: 60%;
+  align-items: : center;
+  margin: 0 auto;
+}*/
+
+.logInField {
+  width: 60%;
+}
+
+
+/*.logInGrp {
+  align-self: center;
+}*/
+
+legend {
+  padding-left: 15px;
+}
+
+.logInBtn {
+  /*align: center;*/
+  margin: 0 auto;
+}
+
+.regPrompt {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.regBtn {
+  width: 30%;
+}
+
+footer {
+  position: fixed;
+  height: 65px;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
+header {
+  position: fixed;
+  height: 115px;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+
+body {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+.nav {
+  /*position: fixed;*/
+  height: 50px;
+  top: 110px;
+  width: 100%;
+  background-color: white;
+  border-bottom: blue 2px solid;
+}

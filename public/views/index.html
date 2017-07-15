@@ -30,8 +30,10 @@
 
     <!-- STYLES -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet'>
-    <link rel='stylesheet' href='styles/main.min.css'>
     <link rel='stylesheet' href='styles/photo.css'>
+    <link rel='stylesheet' href='styles/main.min.css'>
+    <link rel='stylesheet' href='styles/main.css'>
+
 
     <title>PetTrax</title>
   </head>
@@ -46,13 +48,13 @@
         <h3>...because your pet is family!</h3>
 
         <!-- START nav div -->
-          <div ng-controller='NavController as nc' ng-hide='tbd' class='container'>
+          <div ng-controller='NavController as nc' ng-init='nc.locStorageEval()' ng-hide='nc.navHide' class='container nav'>
             <nav class='navbar navbar-light bg-faded'>
               <ul class='nav nav-pills'>
-                <li role='presentation' class='active'><a href='#'>Home</a></li>
-                <li role='presentation'><a href='#'>Owner</a></li>
+                <!-- <li role='presentation' class='active'><a href='#'>Home</a></li> -->
+                <li role='presentation'><a href='#!/user'>Owner</a></li>
                 <li role='presentation'><a href='#!/pets'>Pets</a></li>
-                <p class='navbar-text navbar-right'>Signed in as {{nc.userFirst}} {{nc.userLast}}... <a href='/' class='navbar-link'>SIGN OUT</a></p>
+                <p class='navbar-text navbar-right'>Welcome, {{nc.userFirst}}! ...<a href='/' class='navbar-link' ng-click='nc.setLocStorage()'>SIGN OUT</a></p>
               </ul>
             </nav>
           </div>
@@ -63,7 +65,7 @@
 
 
     <!-- START ng-view -->
-    <div>
+    <div class="view">
       <ng-view></ng-view>
     </div>
     <!-- END ng-view -->

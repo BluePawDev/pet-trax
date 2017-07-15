@@ -1,46 +1,50 @@
 <!-- START pets.html -->
 <div>
+  <div class="">
+    <h3>Info for {{pc.userFirst}}'s Pets</h3>
+    <p><button type='button' name='cmdAddPet' ng-click='pc.newPet()' ng-show='pc.petEdit'>New Pet</button></p>
+  </div>
 
-  <h4>Pet Information</h4>
-  <p ng-show='pc.petEdit'><button type='button' name='cmdAddPet' ng-click='pc.newPet()'>New Pet</button>
+
+  <!-- <p ng-show='pc.petEdit'><button type='button' name='cmdAddPet' ng-click='pc.newPet()'>New Pet</button> -->
 
 
-  <form editable-form name="editableForm" onaftersave="saveUser()">
-    <div>
+  <!-- <form editable-form name="editableForm" onaftersave="saveUser()">
+    <div> -->
       <!-- editable username (text with validation) -->
-      <span class="title">Name: </span>
+      <!-- <span class="title">Name: </span>
       <span editable-text="pc.pet.name" e-name="petName" onbeforesave="checkName($data)" e-required>{{ user.name || 'empty' }}</span>
     </div>
 
-    <div>
+    <div> -->
       <!-- editable status (select-local) -->
-      <span class="title">Type: </span>
+      <!-- <span class="title">Type: </span>
       <span editable-select="pc.petType" e-name="petType" e-ng-options="s.value as s.text for s in petTypes">
         {{ (petTypes | filter:{value: pc.petType})[0].text || 'Not set' }}
       </span>
     </div>
 
-    <div>
+    <div> -->
       <!-- editable username (text with validation) -->
-      <span class="title">Breed: </span>
+      <!-- <span class="title">Breed: </span>
       <span editable-text="pc.pet.Breed" e-name="petBreed" onbeforesave="checkName($data)" e-required>{{ pet.breed || 'empty' }}</span>
     </div>
 
-    <div>
+    <div> -->
       <!-- editable username (text with validation) -->
-      <span class="title">Color: </span>
+      <!-- <span class="title">Color: </span>
       <span editable-text="pc.pet.Color" e-name="petBreed" onbeforesave="checkName($data)" e-required>{{ pet.color || 'empty' }}</span>
     </div>
 
-    <div>
+    <div> -->
       <!-- editable username (text with validation) -->
-      <span class="title">Markings: </span>
+      <!-- <span class="title">Markings: </span>
       <span editable-text="pc.pet.Markings" e-name="petMarkings" onbeforesave="checkName($data)" e-required>{{ pet.markings || 'empty' }}</span>
     </div>
 
-    <div>
+    <div> -->
       <!-- editable username (text with validation) -->
-      <span class="title">Sex: </span>
+      <!-- <span class="title">Sex: </span>
       <span editable-text="pc.pet.Sex" e-name="petSex" onbeforesave="checkName($data)" e-required>{{ pet.sex || 'empty' }}</span>
     </div>
 
@@ -53,20 +57,20 @@
       </a>
     </div>
 
-    <div>
+    <div> -->
       <!-- editable group (select-remote) -->
-      <span class="title">Group: </span>
+      <!-- <span class="title">Group: </span>
       <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-ng-options="g.id as g.text for g in groups">
         {{ showGroup() }}
       </span>
     </div>
 
-    <div class="buttons">
+    <div class="buttons"> -->
       <!-- button to show form -->
-      <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+      <!-- <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
         Edit
       </button>
-      <!-- buttons to submit / cancel form -->
+      buttons to submit / cancel form
       <span ng-show="editableForm.$visible">
         <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
           Save
@@ -76,17 +80,17 @@
         </button>
       </span>
     </div>
-  </form>
+  </form> -->
 
 
 
-  <!-- START edit petData -->
-  <div class='petData_01' ng-hide='pc.petEdit'>
+  <!-- START addNewPet  -->
+  <div class='petData_01 userEditInfo' ng-hide='pc.petEdit'>
+    <h4><b>Add your new pet, {{pc.userFirst}}!</b></h4>
 
     <p><label for='txtPetName'>Name: </label>
       <input type="text" name="txtPetName" value="" ng-model='pc.txtPetName'>
     </p>
-
 
     <p><label for='selPetType'>Type: </label>
     <select class='petType' name='selPetType' ng-model='pc.selPetType'>
@@ -134,13 +138,12 @@
     <button type="button" name="cmdAddPet" ng-click='pc.addPet()'>Add</button>
     <button type="button" name="cmdCancAddPet" ng-click='pc.newPet()'>Cancel</button>
   </div>
-  <!-- END edit petData -->
+  <!-- END addNewPet -->
 
   <!-- START display petData -->
-  <hr>
-  <div ng-init='pc.getPets()'>
-    <div ng-repeat='pet in pc.pets'>
-      <h5>{{pet.txtpetname}}</h5>
+  <div ng-init='pc.getPets([pc.userEmail])' >
+    <div ng-repeat='pet in pc.pets track by $index' class='userEditInfo' ng-show='pc.petEdit'>
+      <h4>{{pet.txtpetname}}</h4>
       <p><b>Description: </b></p>
       <ul>
         <li>{{pet.txtpetname}} is a {{pet.txtsex | lowercase}} {{pet.txtbreed}}</li>
@@ -150,8 +153,7 @@
         <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>His coat is {{pet.txtcolor | lowercase}} with {{pet.txtmarking | lowercase }} markings</li>
       </ul>
       <p><button type="button" name="cmdHistory">History</button>
-      <button type="button" name="cmdEditPet">Edit</button></p>
-      <hr>
+      <button type="button" name="cmdEditPet" ng-click='pc.editPet()'>Edit</button></p>
     </div>
   </div>
   <!-- END display petData -->

@@ -2,9 +2,10 @@
 myApp.controller('UserController', function(RegLoginService, $location) {
 	var vm = this;
 
-	vm.userFirst = RegLoginService.userFirst;
-	vm.userLast = RegLoginService.userLast;
-	vm.userEmail = RegLoginService.userEmail;
+	vm.userEmail = localStorage.getItem('email:');
+	vm.userFirst = localStorage.getItem('first:');
+	vm.userLast = localStorage.getItem('last:');
+
 	vm.editUserHide = true;
 
 	vm.editUser = function() {

@@ -56,14 +56,13 @@ router.post('/', function(req, res) {
 								res.send('error');
 							} // END compare password IF
 							else {
-								if (isMatch) {
+								if (isMatch === false) {
+									done();
+									res.sendStatus(401); // ADD SWEETALERT FOR WRONG PASSWORD
+								} // END compare isMatch IF
+								else if (isMatch) {
 									done();
 									res.send(result.rows);
-								} // END compare isMatch IF
-								else {
-									done();
-									// ADD SWEETALERT FOR WRONG PASSWORD
-									res.sendStatus(401);
 								}
 							} // END ELSE of bcrypt compare password to hashed password
 						}); // END bcrypt compare password to hashed password
