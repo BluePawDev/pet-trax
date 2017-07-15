@@ -9,6 +9,7 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	var email = vm.userEmail;
 
 	vm.petEdit = true;
+	vm.petHistory = true;
 
 	vm.reload = function() {
 		$route.reload();
@@ -19,12 +20,27 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 		var email = userEmail[0];
 		console.log('vm.getPets():', email);
 		PetService.getPets(email).then(function(petInfo) {
+			console.log(petInfo);
 			vm.pets = petInfo;
 		})
 	}
 	// END getPets
 
 
+	// START getHealth
+	vm.getHealth = function(petID) {
+		console.log('in getHealth()', petID);
+		var id = petID[0];
+		console.log('34:', vm.petHistory);
+		vm.showHideHistory();
+		console.log('36:', vm.petHistory);
+		console.log(id);
+		PetService.getHealth(id).then(function(healthInfo) {
+			vm.health = healthInfo;
+			console.log(vm.health);
+		})
+	}
+	// END getHealth
 
 	// START addPet with xeditable
 	// vm.addPet = function() {
@@ -51,6 +67,12 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 		vm.petEdit = !vm.petEdit;
 	}
 	// END addNewPet
+
+	// START show/hide petHistory
+	vm.showHideHistory = function() {
+		vm.petHistory = !vm.petHistory;
+	}
+	// END  show/hide petHistory
 
 
 	// START addPet

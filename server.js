@@ -10,7 +10,7 @@ var login = require('./modules/routes/login');
 var home = require('./modules/routes/home');
 var newPet = require('./modules/routes/newPet');
 var pets = require('./modules/routes/pets');
-var newHistory = require('./modules/routes/newHistory');
+var history = require('./modules/routes/history');
 
 
 /* USES for server.js */
@@ -24,7 +24,7 @@ app.use('/register', register);
 app.use('/login', login);
 app.use('/home', home);
 app.use('/newPet', newPet);
-app.use('/newHistory', newHistory);
+app.use('/history', history);
 app.use('/', index);
 
 // Globals

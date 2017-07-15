@@ -36,19 +36,19 @@ myApp.service('PetService', function($http, $location) {
 	}
 	// END editPet
 
-
-	// START addNewHistory
-	sv.addNewHistory = function(newHistory) {
-		console.log(newHistory);
-		return $http.post('/newHistory', newHistory).then(function(response) {
-			console.log(response.data);
-			// if (response.data === 'Created') {
-			//
-			// }
-			// $location.path('/home');
+	// START getHealth
+	sv.getHealth = function(petID) {
+		console.log('sv.getHealth(): ', petID);
+		var id = {
+			id: petID
+		}
+		console.log(id);
+		return $http.post('/history', id).then(function(response) {
+			console.log(response);
+			return response.data;
 		})
 	}
-	// END addNewHistory
+	// END getHealth
 
 
 }); // END PetService

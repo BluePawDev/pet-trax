@@ -141,9 +141,11 @@
   <!-- END addNewPet -->
 
   <!-- START display petData -->
-  <div ng-init='pc.getPets([pc.userEmail])' >
-    <div ng-repeat='pet in pc.pets track by $index' class='userEditInfo' ng-show='pc.petEdit'>
-      <h4>{{pet.txtpetname}}</h4>
+  <div class='petDataDisplay' ng-init='pc.getPets([pc.userEmail])' ng-show='pc.petHistory'>
+
+    <!-- START ng-repead petData -->
+    <div ng-repeat='pet in pc.pets track by $index' class='userEditInfo petBlock' ng-show='pc.petEdit'>
+      <h4>{{pet.txtpetname}} {{pet.id}}</h4>
       <p><b>Description: </b></p>
       <ul>
         <li>{{pet.txtpetname}} is a {{pet.txtsex | lowercase}} {{pet.txtbreed}}</li>
@@ -152,11 +154,48 @@
         <li ng-if='pet.txtsex == "Female (spayed)" || pet.txtsex == "Female (intact)"'>Her coat is {{pet.txtcolor | lowercase}} with {{pet.txtmarking | lowercase}} markings</li>
         <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>His coat is {{pet.txtcolor | lowercase}} with {{pet.txtmarking | lowercase }} markings</li>
       </ul>
-      <p><button type="button" name="cmdHistory">History</button>
+      <p><button type="button" name="cmdHistory" ng-click='pc.getHealth([pet.id])'>History</button>
       <button type="button" name="cmdEditPet" ng-click='pc.editPet()'>Edit</button></p>
     </div>
+    <!-- END ng-repead petData -->
+
   </div>
   <!-- END display petData -->
 
 </div>
+<!-- START healthHistory div -->
+<div class='healthHistory' ng-hide='pc.petHistory'>
+  <h4>Health History: {{pc.petName}}</h4>
+  <!-- <p><button type="button" name="cmdNewAppt">New Appointment</button></p> -->
+  <!-- START health history table -->
+  <table>
+    <!-- START header row -->
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Purpose</th>
+        <th>Weight</th>
+        <th>Meds</th>
+        <th>Cost</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <!-- END header row -->
+
+    <!-- START data -->
+    <tbody>
+      <tr ng-repeat='health in pc.health track by $index'>
+        <td>{{health.dtmdate | date:'MM/dd/yy'}}</td>
+        <td>{{health.txtpurpose}}</td>
+        <td>{{health.intweight}}</td>
+        <td>{{health.txtmeds}}</td>
+        <td>{{health.curcost}}</td>
+        <td>{{health.txtnotes}}</td>
+      </tr>
+    </tbody>
+    <!-- END data -->
+  </table>
+
+</div>
+<!-- END healthHistory div -->
 <!-- END pets.html -->
