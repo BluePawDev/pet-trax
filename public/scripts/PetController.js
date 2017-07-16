@@ -18,7 +18,6 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	// START getPets
 	vm.getPets = function(userEmail) {
 		var email = userEmail[0];
-		console.log('vm.getPets():', email);
 		PetService.getPets(email).then(function(petInfo) {
 			console.log(petInfo);
 			vm.pets = petInfo;

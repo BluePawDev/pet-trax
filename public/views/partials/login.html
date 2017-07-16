@@ -1,5 +1,5 @@
 <!-- START login div -->
-<div class='formLoginReg'>
+<div class='formLoginRegDiv'>
   <!-- START Log-in form -->
   <form class="form-horizontal">
     <fieldset>
@@ -8,6 +8,7 @@
       <legend>Log In</legend>
 
         <!-- START Email input-->
+
         <div class="form-group">
           <p class='logInGrp'><label class="col-md-4 control-label" for="textinput">Email:</label>
           <input ng-model='rlc.hypEmail' id="textinput" name="hypEmail" type="email" placeholder="email address" class="form-control input-md logInField" required=""></p>
@@ -24,7 +25,7 @@
         <!-- START Log-in button -->
         <div class="form-group">
           <p class='logInBtn'><label class="col-md-4 control-label" for="cmdLogIn"></label><br>
-            <button id="cmdLogIn" name="cmdLogIn" class="btn btn-success" ng-click='rlc.logIn()'><i class="fa fa-sign-in"></i> LOG IN!</button></p>
+            <button class="cmdLogIn" name="cmdLogIn" class="btn btn-success" ng-click='rlc.logIn()'><i class="fa fa-sign-in"></i> LOG IN!</button></p>
 
         </div>
         <!-- END Log-in button -->

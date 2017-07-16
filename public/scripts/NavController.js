@@ -26,11 +26,9 @@ myApp.controller('NavController', function(RegLoginService, $location, $route) {
 	vm.locStorageEval = function() {
 		if (vm.userEmail == undefined || vm.userEmail == null || vm.userEmail == '') {
 			vm.navHide = true;
-			console.log('29', vm.navHide);
 			vm.reload();
 		} else {
 			vm.navHide = false;
-			console.log('32', vm.navHide);
 			vm.reload();
 		}
 	}

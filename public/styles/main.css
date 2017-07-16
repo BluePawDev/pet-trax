@@ -1,6 +1,48 @@
-.petDataDisplay, .petBlock {
-  margin: 10px;
-  border: 1px solid black;
+/* NG-VIEW */
+
+.view {
+  width: 70%;
+  margin: 0 auto;
+}
+
+
+/* LOGIN/REGISTER */
+
+.formLoginRegDiv {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-horizontal {
+  width: 35%;
+  background-color: #F5F5F5;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-control {
+  height: 2em;
+  width: 80%;
+}
+
+.form-group, .logInBtn {
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.cmdLogIn {
+  margin: 0 auto;
+  display: flex;
+  height: 30px;
+}
+
+.regPrompt h4 {
+  /*text-align: left;*/
+  /*margin-left: 3%;*/
+  font-weight: 600;
+  margin: 0 auto;
 }
 
 input {
@@ -19,26 +61,53 @@ input {
   width: 60%;
 }
 
-.view {
-  width: 70%;
-  margin: 0 auto;
-  /*border: 1px white solid;*/
-}
 
-.formLoginReg, .regPrompt {
-  width: 70%;
-  margin: 0 auto;
-  /*border: 1px white solid;*/
-}
+/* PET INFO DISPLAY */
 
-.form-horizontal {
+.petBlock {
+  border: 1px solid black;
   width: 50%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding: 10px 35px;
 }
 
-h4 {
+.cardPetName {
   text-align: left;
-  margin-left: 3%;
   font-weight: 600;
+}
+
+.petCmdBtn {
+  margin: 0 auto;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  align-self: center;
+}
+
+
+/* HEALTH HISTORY TABLE */
+
+.historyTbl {
+  background-color: #fff;
+  box-shadow: 7px 9px 13px rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+
+.histDate, .histPurp, .histWt, .histMed, .histCost, .histNote {
+  padding: 0 5px;
+  text-align: left;
+}
+
+.histDate, .histWt {
+  text-align: center;
+}
+
+.histCost {
+  text-align: right;
 }
 
 
@@ -59,11 +128,7 @@ h4 {
 
 legend {
   padding-left: 15px;
-}
-
-.logInBtn {
-  /*align: center;*/
-  margin: 0 auto;
+  border-bottom-color: #4460FF;
 }
 
 .regPrompt {
@@ -89,6 +154,7 @@ header {
   top: 0;
   width: 100%;
   background-color: white;
+  border-bottom: blue;
 }
 
 body {
@@ -102,5 +168,16 @@ body {
   top: 110px;
   width: 100%;
   background-color: white;
-  border-bottom: blue 2px solid;
+  border-radius: 0;
+  box-sizing: content-box;
+  margin: 0 auto;
+}
+
+nav-pills {
+  padding-left: 10%;
+  margin-left: 10%;
+}
+
+.navbar-light {
+  padding-right: 10%;
 }

@@ -5,159 +5,238 @@
     <p><button type='button' name='cmdAddPet' ng-click='pc.newPet()' ng-show='pc.petEdit'>New Pet</button></p>
   </div>
 
-
-  <!-- <p ng-show='pc.petEdit'><button type='button' name='cmdAddPet' ng-click='pc.newPet()'>New Pet</button> -->
-
-
-  <!-- <form editable-form name="editableForm" onaftersave="saveUser()">
-    <div> -->
-      <!-- editable username (text with validation) -->
-      <!-- <span class="title">Name: </span>
-      <span editable-text="pc.pet.name" e-name="petName" onbeforesave="checkName($data)" e-required>{{ user.name || 'empty' }}</span>
-    </div>
-
-    <div> -->
-      <!-- editable status (select-local) -->
-      <!-- <span class="title">Type: </span>
-      <span editable-select="pc.petType" e-name="petType" e-ng-options="s.value as s.text for s in petTypes">
-        {{ (petTypes | filter:{value: pc.petType})[0].text || 'Not set' }}
-      </span>
-    </div>
-
-    <div> -->
-      <!-- editable username (text with validation) -->
-      <!-- <span class="title">Breed: </span>
-      <span editable-text="pc.pet.Breed" e-name="petBreed" onbeforesave="checkName($data)" e-required>{{ pet.breed || 'empty' }}</span>
-    </div>
-
-    <div> -->
-      <!-- editable username (text with validation) -->
-      <!-- <span class="title">Color: </span>
-      <span editable-text="pc.pet.Color" e-name="petBreed" onbeforesave="checkName($data)" e-required>{{ pet.color || 'empty' }}</span>
-    </div>
-
-    <div> -->
-      <!-- editable username (text with validation) -->
-      <!-- <span class="title">Markings: </span>
-      <span editable-text="pc.pet.Markings" e-name="petMarkings" onbeforesave="checkName($data)" e-required>{{ pet.markings || 'empty' }}</span>
-    </div>
-
-    <div> -->
-      <!-- editable username (text with validation) -->
-      <!-- <span class="title">Sex: </span>
-      <span editable-text="pc.pet.Sex" e-name="petSex" onbeforesave="checkName($data)" e-required>{{ pet.sex || 'empty' }}</span>
-    </div>
-
-    <div>
-      <a href="#" editable-bsdate="pet.dob"
-                  e-is-open="opened.$data"
-                  e-ng-click="open($event,'$data')"
-                  e-datepicker-popup="dd-MMMM-yyyy">
-        {{ (pet.dob | date:"dd/MM/yyyy") || 'empty' }}
-      </a>
-    </div>
-
-    <div> -->
-      <!-- editable group (select-remote) -->
-      <!-- <span class="title">Group: </span>
-      <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-ng-options="g.id as g.text for g in groups">
-        {{ showGroup() }}
-      </span>
-    </div>
-
-    <div class="buttons"> -->
-      <!-- button to show form -->
-      <!-- <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-        Edit
-      </button>
-      buttons to submit / cancel form
-      <span ng-show="editableForm.$visible">
-        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-          Save
-        </button>
-        <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-          Cancel
-        </button>
-      </span>
-    </div>
-  </form> -->
-
-
-
   <!-- START addNewPet  -->
   <div class='petData_01 userEditInfo' ng-hide='pc.petEdit'>
     <h4><b>Add your new pet, {{pc.userFirst}}!</b></h4>
 
+    <!-- START txtPetName -->
     <p><label for='txtPetName'>Name: </label>
-      <input type="text" name="txtPetName" value="" ng-model='pc.txtPetName'>
-    </p>
+      <input type="text" name="txtPetName" value="" ng-model='pc.txtPetName'></p>
+    <!-- END txtPetName -->
 
+    <!-- START selPetType -->
     <p><label for='selPetType'>Type: </label>
     <select class='petType' name='selPetType' ng-model='pc.selPetType'>
-      <option value='select'>Select One</option>
       <option value='cat'>Cat</option>
       <option value='dog'>Dog</option>
     </select></p>
+    <!-- END selPetType -->
 
+    <!-- START selPetBreed -->
     <p><label for='selPetBreed'>Breed: </label>
     <select class='petBreed' ng-model='pc.txtPetBreed' name='selPetBreed'>
-      <option value='select'>Select One</option>
-      <option value='Xiasi'>Xiasi</option>
-      <option value='TBD'>To be populated via angucomplete-alt</option>
+      <option value='Abyssinian'>Abyssinian</option>
+      <option value='American Bobtail'>American Bobtail</option>
+      <option value='American Shorthair'>American Shorthair</option>
+      <option value='Beagle'>Beagle</option>
+      <option value='Bengal'>Bengal</option>
+      <option value='Bernese Mountain Dog'>Bernese Mountain Dog</option>
+      <option value='Birman'>Birman</option>
+      <option value='Bombay'>Bombay</option>
+      <option value='Border Collie'>Border Collie</option>
+      <option value='Border Terrier'>Border Terrier</option>
+      <option value='Boxer'>Boxer</option>
+      <option value='British Shorthair'>British Shorthair</option>
+      <option value='Brittany Spaniel'>Brittany Spaniel</option>
+      <option value='Bulldog'>Bulldog</option>
+      <option value='Burmese'>Burmese</option>
+      <option value='Cavalier King Charles Spaniel'>Cavalier King Charles Spaniel</option>
+      <option value='Chartreux'>Chartreux</option>
+      <option value='Chihuahua'>Chihuahua</option>
+      <option value='Chinese Li Hua'>Chinese Li Hua</option>
+      <option value='Cocker Spaniel'>Cocker Spaniel</option>
+      <option value='Dachshund'>Dachshund</option>
+      <option value='Dalmatian'>Dalmatian</option>
+      <option value='Devon Rex'>Devon Rex</option>
+      <option value='Dobermann'>Dobermann</option>
+      <option value='English Setter'>English Setter</option>
+      <option value='French Bulldog'>French Bulldog</option>
+      <option value='German Shepherd'>German Shepherd</option>
+      <option value='German Shorthaired Pointer'>German Shorthaired Pointer</option>
+      <option value='Golden Retriever'>Golden Retriever</option>
+      <option value='Great Dane'>Great Dane</option>
+      <option value='Himalayan'>Himalayan</option>
+      <option value='Labrador Retriever'>Labrador Retriever</option>
+      <option value='Main Coon'>Main Coon</option>
+      <option value='Maltese'>Maltese</option>
+      <option value='Miniature Schnauzer'>Miniature Schnauzer</option>
+      <option value='Nebelung'>Nebelung</option>
+      <option value='Norwegian Forest'>Norwegian Forest</option>
+      <option value='Ocicat'>Ocicat</option>
+      <option value='Persian'>Persian</option>
+      <option value='Poodle'>Poodle</option>
+      <option value='Pug'>Pug</option>
+      <option value='Ragamuffin'>Ragamuffin</option>
+      <option value='Ragdoll'>Ragdoll</option>
+      <option value='Rottweiler'>Rottweiler</option>
     </select></p>
+    <!-- END selPetBreed -->
 
+    <!-- START selPetColor -->
     <p><label for='selPetColor'>Color: </label>
     <select class='petColor' ng-model='pc.txtPetColor' name='selPetColor'>
-      <option value='select'>Select One</option>
+      <option value='Apricot'>Apricot</option>
+      <option value='Belge'>Belge</option>
       <option value='Black'>Black</option>
+      <option value='Black and Brown'>Black and Brown</option>
+      <option value='Black and Cream'>Black and Cream</option>
+      <option value='Black and White'>Black and White</option>
+      <option value='Blonde'>Blonde</option>
+      <option value='Blue Merle'>Blue Merle</option>
+      <option value='Brindle'>Brindle</option>
+      <option value='Brindle and White'>Brindle and White</option>
       <option value='Brown'>Brown</option>
-      <option value='Choclate'>Choclate</option>
-      <option value='TBD'>To be populated via angucomplete-alt</option>
+      <option value='Brown and White'>Brown and White</option>
+      <option value='Brown Brindle'>Brown Brindle</option>
+      <option value='Buff'>Buff</option>
+      <option value='Buff and White'>Buff and White</option>
+      <option value='Chestnut'>Chestnut</option>
+      <option value='Chocolate'>Chocolate</option>
+      <option value='Chocolate and White'>Chocolate and White</option>
+      <option value='Chocolate Brindle'>Chocolate Brindle</option>
+      <option value='Cinnamon'>Cinnamon</option>
+      <option value='Dark Golden'>Dark Golden</option>
+      <option value='Fawn'>Fawn</option>
+      <option value='Fawn and Liver'>Fawn and Liver</option>
+      <option value='Fawn and White'>Fawn and White</option>
+      <option value='Gold'>Gold</option>
+      <option value='Golden'>Golden</option>
+      <option value='Gray and Black'>Gray and Black</option>
+      <option value='Gray and White'>Gray and White</option>
+      <option value='Gray Sable'>Gray Sable</option>
+      <option value='Harlequin'>Harlequin</option>
+      <option value='Light Brown'>Light Brown</option>
+      <option value='Light Golden'>Light Golden</option>
+      <option value='Liver'>Liver</option>
+      <option value='Liver and Tan'>Liver and Tan</option>
+      <option value='Liver and White'>Liver and White</option>
+      <option value='Liver Brindle'>Liver Brindle</option>
+      <option value='Merle'>Merle</option>
+      <option value='Orange'>Orange</option>
+      <option value='Orange and White'>Orange and White</option>
+      <option value='Red'>Red</option>
+      <option value='Red Brindle'>Red Brindle</option>
+      <option value='Red Brindle and White'>Red Brindle and White</option>
+      <option value='Red Fawn'>Red Fawn</option>
+      <option value='Red Sable'>Red Sable</option>
+      <option value='Rust and White'>Rust and White</option>
+      <option value='Sable and Tan'>Sable and Tan</option>
+      <option value='Saddle'>Saddle</option>
+      <option value='Salt and Pepper'>Salt and Pepper</option>
+      <option value='Sandy'>Sandy</option>
+      <option value='Silver'>Silver</option>
+      <option value='Silver and Black'>Silver and Black</option>
+      <option value='Silver and White'>Silver and White</option>
+      <option value='Silver Brindle'>Silver Brindle</option>
+      <option value='Tan'>Tan</option>
+      <option value='Tan and White'>Tan and White</option>
+      <option value='Tri-Colored'>Tri-Colored</option>
+      <option value='White'>White</option>
+      <option value='White and Apricot'>White and Apricot</option>
+      <option value='White and Black'>White and Black</option>
+      <option value='White and Black Brindle'>White and Black Brindle</option>
+      <option value='White and Chocolate'>White and Chocolate</option>
+      <option value='White and Fawn'>White and Fawn</option>
+      <option value='White Merle'>White Merle</option>
+      <option value='Wolf Sable'>Wolf Sable</option>
+      <option value='Yellow'>Yellow</option>
     </select></p>
+    <!-- END selPetColor -->
 
+    <!-- START selPetMarking -->
     <p><label for='selPetMarking'>Markings: </label>
     <select class='petMarking' ng-model='pc.txtPetMarking' name='selPetMarking'>
-      <option value='select'>Select One</option>
+      <option value='Black and Tan'>Black and Tan</option>
+      <option value='Black Mask'>Black Mask</option>
+      <option value='Black Mask, White'>Black Mask, White</option>
+      <option value='Black Patch'>Black Patch</option>
+      <option value='Black Point'>Black Point</option>
+      <option value='Black Saddle'>Black Saddle</option>
+      <option value='Blue'>Blue</option>
       <option value='Brindle'>Brindle</option>
+      <option value='Brindle Domino'>Brindle Domino</option>
+      <option value='Brindle Point'>Brindle Point</option>
+      <option value='Brown'>Brown</option>
+      <option value='Brown Mask'>Brown Mask</option>
+      <option value='Chocolate'>Chocolate</option>
+      <option value='Chocolate Mask'>Chocolate Mask</option>
+      <option value='Cream'>Cream</option>
       <option value='Dapple'>Dapple</option>
-      <option value='Harlequin'>Harlequin</option>
-      <option value='dot'>To be populated via angucomplete-alt</option>
+      <option value='Domino'>Domino</option>
+      <option value='Fawn'>Fawn</option>
+      <option value='Gray'>Gray</option>
+      <option value='Gray Mask'>Gray Mask</option>
+      <option value='Mask'>Mask</option>
+      <option value='Patched'>Patched</option>
+      <option value='Pinto'>Pinto</option>
+      <option value='Saddle Pattern'>Saddle Pattern</option>
+      <option value='Solid'>Solid</option>
+      <option value='Speckled'>Speckled</option>
+      <option value='Spotted'>Spotted</option>
+      <option value='Tan'>Tan</option>
+      <option value='Tan Point'>Tan Point</option>
+      <option value='Tan Points & Ticked'>Tan Points & Ticked</option>
+      <option value='Ticked'>Ticked</option>
+      <option value='White'>White</option>
+      <option value='White Mask'>White Mask</option>
+      <option value='White Mask, White'>White Mask, White</option>
+      <option value='White Patch'>White Patch</option>
     </select></p>
+    <!-- END selPetMarking -->
 
+    <!-- START selPetSex -->
     <p><label for=''>Sex: </label>
     <select class='petSex' name='selPetSex' ng-model='pc.selPetSex'>
-      <option value='select'>Select One</option>
       <option value='Female (intact)'>Female (intact)</option>
       <option value='Female (spayed)'>Female (spayed)</option>
       <option value='Male (intact)'>Male (intact)</option>
       <option value='Male (neutered)'>Male (neutered)</option>
     </select></p>
+    <!-- END selPetSex -->
 
+    <!-- START demPetDOB -->
     <p><label for='dtmPetDOB'>DOB: </label>
     <input type='date' name='dtmPetDOB' value='' ng-model='pc.dtmPetDOB'></p>
+    <!-- START demPetDOB -->
+
+    <!-- START command buttons -->
+      <!-- START addPet button -->
     <button type="button" name="cmdAddPet" ng-click='pc.addPet()'>Add</button>
+      <!-- END addPet button -->
+
+      <!-- START cmdCancAddPet button -->
     <button type="button" name="cmdCancAddPet" ng-click='pc.newPet()'>Cancel</button>
+      <!-- START cmdCancAddPet button -->
+    <!-- START command buttons -->
+
   </div>
   <!-- END addNewPet -->
+
 
   <!-- START display petData -->
   <div class='petDataDisplay' ng-init='pc.getPets([pc.userEmail])' ng-show='pc.petHistory'>
 
-    <!-- START ng-repead petData -->
-    <div ng-repeat='pet in pc.pets track by $index' class='userEditInfo petBlock' ng-show='pc.petEdit'>
-      <h4>{{pet.txtpetname}} {{pet.id}}</h4>
-      <p><b>Description: </b></p>
-      <ul>
-        <li>{{pet.txtpetname}} is a {{pet.txtsex | lowercase}} {{pet.txtbreed}}</li>
-        <li ng-if='pet.txtsex == "Female (spayed)" || pet.txtsex == "Female (intact)"'>Born on {{pet.dtmdob | date:'MM/dd/yy'}} she is  {{pet.age.years}} years old</li>
-        <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>Born on {{pet.dtmdob | date:'MM/dd/yy'}} he is  {{pet.age.years}} years old</li>
-        <li ng-if='pet.txtsex == "Female (spayed)" || pet.txtsex == "Female (intact)"'>Her coat is {{pet.txtcolor | lowercase}} with {{pet.txtmarking | lowercase}} markings</li>
-        <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>His coat is {{pet.txtcolor | lowercase}} with {{pet.txtmarking | lowercase }} markings</li>
-      </ul>
-      <p><button type="button" name="cmdHistory" ng-click='pc.getHealth([pet.id])'>History</button>
-      <button type="button" name="cmdEditPet" ng-click='pc.editPet()'>Edit</button></p>
+
+  <!-- START ng-repeat petData -->
+  <div ng-repeat='pet in pc.pets track by $index' class='userEditInfo petBlock' ng-show='pc.petEdit'>
+    <h4 class='cardPetName'>{{pet.txtpetname}}</h4>
+    <p><b>Description: </b></p>
+    <ul>
+      <li>{{pet.txtpetname}} is a {{pet.txtsex | lowercase}} {{pet.txtbreed}}</li>
+      <li ng-if='pet.txtsex == "Female (spayed)" || pet.txtsex == "Female (intact)"'>Born on {{pet.dtmdob | date:'MM/dd/yy'}} she is  {{pet.age.years}} years old</li>
+      <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>Born on {{pet.dtmdob | date:'MM/dd/yy'}} he is  {{pet.age.years}} years old</li>
+      <li ng-if='pet.txtsex == "Female (spayed)" || pet.txtsex == "Female (intact)"'>Her coat is {{pet.txtcolor | lowercase}} with {{pet.txtmarking | lowercase}} markings</li>
+      <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>His coat is {{pet.txtcolor | lowercase}} with {{pet.txtmarking | lowercase }} markings</li>
+    </ul>
+    <div>
+      <p class="petCmdBtn"><button type="button" name="cmdHistory" ng-click='pc.getHealth([pet.id])'>History</button>
+      <!-- <button type="button" name="cmdEditPet" ng-click='pc.editPet()'>Edit</button> -->
+    </p>
+
     </div>
-    <!-- END ng-repead petData -->
+
+  </div>
+  <!-- END ng-repead petData -->
 
   </div>
   <!-- END display petData -->
@@ -168,7 +247,7 @@
   <h4>Health History: {{pc.petName}}</h4>
   <!-- <p><button type="button" name="cmdNewAppt">New Appointment</button></p> -->
   <!-- START health history table -->
-  <table>
+  <table class='historyTbl'>
     <!-- START header row -->
     <thead>
       <tr>
@@ -185,12 +264,12 @@
     <!-- START data -->
     <tbody>
       <tr ng-repeat='health in pc.health track by $index'>
-        <td>{{health.dtmdate | date:'MM/dd/yy'}}</td>
-        <td>{{health.txtpurpose}}</td>
-        <td>{{health.intweight}}</td>
-        <td>{{health.txtmeds}}</td>
-        <td>{{health.curcost}}</td>
-        <td>{{health.txtnotes}}</td>
+        <td class='histDate'>{{health.dtmdate | date:'MM/dd/yy'}}</td>
+        <td class='histPurp'>{{health.txtpurpose}}</td>
+        <td class='histWt'>{{health.intweight}} lbs.</td>
+        <td class='histMed'>{{health.txtmeds}}</td>
+        <td class='histCost'>{{health.curcost | currency :$}}</td>
+        <td class='histNote'>{{health.txtnotes}}</td>
       </tr>
     </tbody>
     <!-- END data -->

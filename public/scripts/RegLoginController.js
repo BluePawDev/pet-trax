@@ -7,15 +7,11 @@ myApp.controller('RegLoginController', function(RegLoginService, $location, $rou
 	}
 
 	vm.locStorageEval = function() {
-		if (localStorage.getItem('email:') == undefined) {
-
-		}
-		console.log(localStorage.getItem('email:'));
+		if (localStorage.getItem('email:') == undefined) {}
 	}
 
 	// START registerUser
 	vm.registerUser = function() {
-		console.log('reg user clicked');
 		// START define newUser obj
 		var newUser = {
 			firstName: vm.txtFirstName,
@@ -23,7 +19,6 @@ myApp.controller('RegLoginController', function(RegLoginService, $location, $rou
 			email: vm.hypEmail,
 			password: vm.txtPassword
 		}; // END define newUser obj
-		console.log(newUser);
 		RegLoginService.sendRegister(newUser).then(function() {
 			// CLEAR INPUTS
 			// vm.txtFirstName = '';...

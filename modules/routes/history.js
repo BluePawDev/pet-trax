@@ -24,16 +24,14 @@ var pool = new pg.Pool(config);
 
 // START get pets POST
 router.post('/', function(req, res) {
-	console.log(req.body);
 	var user = req.body; // data from the client
 
 	// do database query to make a new todo
 	pool.connect()
 		.then(function(client) {
-			client.query("SELECT dtmdate, txtpurpose, intweight, txtmeds, curcost, txtnotes FROM tblhistory JOIN tblpet ON tblhistory.fk_petid = tblpet.id WHERE fk_petid = '" + req.body.id + "'").then(function(petHealth) {
+			client.query("SELECT dtmdate, txtpurpose, intweight, txtmeds, curcost, txtnotes FROM tblhistory JOIN tblpet ON tblhistory.fk_petid = tblpet.id WHERE fk_petid = '" + req.body.id + "'ORDER BY dtmdate DESC").then(function(petHealth) {
 				client.release();
-				console.log(petHealth.rows);
-				res.send(petHealth.rows); // created
+				res.send(petHealth.rows);
 			});
 		})
 		.catch(function(err) {
