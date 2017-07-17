@@ -43,5 +43,16 @@ myApp.service('PetService', function($http, $location) {
 	}
 	// END getHealth
 
+	// START newHealth
+	sv.newHealth = function(newHistory) {
+		console.log('sv.newHealth', newHistory);
+		return $http.put('/history', newHistory).then(function(response) {
+			console.log(response);
+		})
+
+	}
+
+	// END newHealth
+
 
 }); // END PetService

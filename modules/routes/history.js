@@ -44,6 +44,7 @@ router.post('/', function(req, res) {
 
 // START update health PUT
 router.put('/', function(req, res) {
+	console.log(req.body);
 	pool.connect()
 		.then(function(client) {
 			client.query('SELECT id, txtpetname, dtmdob, txttype, txtbreed, txtcolor, txtmarking, txtsex, age(dtmdob) FROM tblpet JOIN tblowner ON tblpet.fk_ownerid = tblowner.hypemail')

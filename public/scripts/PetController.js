@@ -10,14 +10,21 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 
 	// vm.petEdit = true;
 
-	// SHOWS
+	// BUTTON SHOWS
+
+	vm.buttonAddHistory = true;
+	vm.buttonDoneHistory = true;
 	vm.buttonAddNewPet = true;
+
+
+	// FORM SHOWS
 	vm.formAddNewPet = false;
 	vm.formPetHistory = false;
 	vm.formPetCards = true;
 	vm.formPetHistory = false;
 	vm.formNewHealthHistory = false;
 	vm.headerH3 = true;
+
 
 
 	vm.reload = function() {
@@ -111,19 +118,58 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 		vm.headerH3 = !vm.headerH3;
 	}
 
-	vm.AddHealthHistory = function() {
+
+
+	vm.newHealthHistory = function() {
 		console.log('in AddHealthHistory()');
+		vm.buttonAddHistory = false;
+		vm.buttonDoneHistory = false;
 		vm.buttonAddNewPet = false;
 		vm.formAddNewPet = false;
 		vm.formPetHistory = false;
 		vm.formPetCards = false;
 		vm.formPetHistory = false;
 		vm.formNewHealthHistory = true;
-
 		vm.headerH3 = true;
+
 
 	}
 
+	vm.cancAddHistory = function() {
+		vm.buttonAddHistory = true;
+		vm.buttonDoneHistory = true;
+		vm.buttonAddNewPet = false;
+		vm.formAddNewPet = false;
+		vm.formPetHistory = false;
+		vm.formPetCards = false;
+		vm.formPetHistory = true;
+		vm.formNewHealthHistory = false;
+
+	}
+
+	vm.AddHealthHistory = function() {
+		console.log('in AddHealthHistory()');
+		vm.buttonAddHistory = false;
+		vm.buttonDoneHistory = false;
+		vm.buttonAddNewPet = false;
+		vm.formAddNewPet = false;
+		vm.formPetHistory = true;
+		vm.formPetCards = false;
+		vm.formNewHealthHistory = false;
+		vm.headerH3 = true;
+		var newHistory = {
+			date: vm.newHistDate,
+			purpose: vm.newHistPurp,
+			wt: vm.newHistWt,
+			meds: vm.newHistMed,
+			cost: vm.newHistCost,
+			notes: vm.newHistNote
+		}
+		console.log('pc.AddHealthHistory', newHistory);
+		PetService.newHealth(newHistory);
+		vm.reload();
+
+	}
 
 	// START editPet
 	vm.editPet = function() {

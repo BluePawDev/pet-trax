@@ -250,8 +250,8 @@
 </div>
 <!-- START healthHistory div -->
 <div class='healthHistory' ng-show='pc.formPetHistory'>
-  <button class='btn btn-primary' type="button" name="button" ng-click='pc.AddHealthHistory()'>Add Item</button>
-  <button class='btn btn-warning' type="button" name="button" ng-click='pc.historyDone()'>Done</button>
+  <button class='btn btn-primary' type="button" name="button" ng-click='pc.newHealthHistory()' ng-show="pc.buttonAddHistory">Add Item</button>
+  <button class='btn btn-warning' type="button" name="button" ng-click='pc.historyDone()' ng-show="pc.buttonDoneHistory">Done</button>
   <!-- <p><button type="button" name="cmdNewAppt">New Appointment</button></p> -->
   <!-- START health history table -->
   <table class='historyTbl table table-striped'>
@@ -288,8 +288,8 @@
 
 <!-- START newHealthHistory div -->
 <div class='healthHistory' ng-show='pc.formNewHealthHistory'>
-  <button class='btn btn-primary' type="button" name="button">Add Item</button>
-  <button class='btn btn-warning' type="button" name="button" ng-click='pc.historyDone()'>Done</button>
+  <!-- <button class='btn btn-primary' type="button" name="button" ng-show='buttonAddHistory'>Add Item</button> -->
+  <!-- <button class='btn btn-warning' type="button" name="button" ng-show='buttonDoneHistory' ng-click='pc.historyDone()'>Done</button> -->
   <!-- <p><button type="button" name="cmdNewAppt">New Appointment</button></p> -->
   <!-- START health history table -->
   <table class='historyTbl table table-striped'>
@@ -309,15 +309,13 @@
     <!-- START data -->
     <tbody>
       <tr>
-        <td class='histDate' ng-model=''><input type="date" name="txtHistDate" value=""></td>
-        <td class='histPurp' ng-model=''><input type="text" name="txtHistPurp" value=""></td>
-        <td class='histWt' ng-model=''><input type="text" name="txtHistWt" value=""></td>
-        <td class='histMed' ng-model=''><input type="text" name="txtHistMed" value=""></td>
-        <td class='histCost' ng-model=''><input type="text" name="txtHistCost" value=""></td>
-        <td class='histNote' ng-model=''><input type="text" name="txtHistNote" value=""></td>
+        <td class='histDate'><input ng-model='pc.newHistDate' type="date" name="txtHistDate" value=""></td>
+        <td class='histPurp'><input ng-model='pc.newHistPurp' type="text" name="txtHistPurp" value=""></td>
+        <td class='histWt'><input ng-model='pc.newHistWt' type="text" name="txtHistWt" value=""></td>
+        <td class='histMed'><input ng-model='pc.newHistMed' type="text" name="txtHistMed" value=""></td>
+        <td class='histCost'><input ng-model='pc.newHistCost' type="text" name="txtHistCost" value=""></td>
+        <td class='histNote'><input ng-model='pc.newHistNote' type="text" name="txtHistNote" value=""></td>
       </tr>
-      <p><button type="button" name="button">Save Item</button></p>
-      <p><button type="button" name="button">Cancel</button></p>
 
     </tbody>
 
@@ -325,9 +323,9 @@
   </table>
   <div class="col-md-8">
 
-    <p><button ng-click='rlc.registerUser()' id="cmdRegister" name="cmdRegister" class="btn btn-success cmdRegBtn"><i class="fa fa-user-plus"></i> Save Item</button></p>
+    <p><button ng-click='pc.AddHealthHistory()' id="cmdRegister" name="cmdRegister" class="btn btn-success cmdRegBtn"><i class="fa fa-user-plus"></i> Save Item</button></p>
 
-    <p><a href="#!/"><button ng-click='rlc.goLogin()' id="cmdCancel" name="cmdCancel" class="btn btn-danger cmdRegBtn cmdCancel"><i class="fa fa-hand-paper-o"></i> Cancel </button></a></p>
+    <p><button ng-click='pc.cancAddHistory()' id="cmdCancel" name="cmdCancel" class="btn btn-danger cmdRegBtn cmdCancel"><i class="fa fa-hand-paper-o"></i> Cancel </button></p>
 
   </div>
 
