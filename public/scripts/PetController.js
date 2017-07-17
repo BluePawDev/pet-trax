@@ -121,7 +121,7 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 
 
 	vm.newHealthHistory = function() {
-		console.log('in AddHealthHistory()');
+		// console.log('in AddHealthHistory()');
 		vm.buttonAddHistory = false;
 		vm.buttonDoneHistory = false;
 		vm.buttonAddNewPet = false;
@@ -148,10 +148,12 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	}
 
 	vm.AddHealthHistory = function() {
-		console.log('in AddHealthHistory()');
-		vm.buttonAddHistory = false;
-		vm.buttonDoneHistory = false;
+		// console.log('in AddHealthHistory()');
+		// cmd buttons
+		vm.buttonAddHistory = true;
+		vm.buttonDoneHistory = true;
 		vm.buttonAddNewPet = false;
+		// views
 		vm.formAddNewPet = false;
 		vm.formPetHistory = true;
 		vm.formPetCards = false;
@@ -165,7 +167,7 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 			cost: vm.newHistCost,
 			notes: vm.newHistNote
 		}
-		console.log('pc.AddHealthHistory', newHistory);
+		// console.log('pc.AddHealthHistory', newHistory);
 		PetService.newHealth(newHistory);
 		vm.reload();
 
