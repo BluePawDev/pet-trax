@@ -24,23 +24,18 @@
 
         <!-- START Log-in button -->
         <div class="form-group">
-          <p class='logInBtn'><label class="col-md-4 control-label" for="cmdLogIn"></label><br>
-            <button class="cmdLogIn" name="cmdLogIn" class="btn btn-success" ng-click='rlc.logIn()'><i class="fa fa-sign-in"></i> LOG IN!</button></p>
-
+          <p class='cmdRegBtn'><label class="col-md-4 control-label" for="cmdLogIn"></label><br>
+            <button class="ccmdLogIn btn btn-success" name="cmdLogIn" ng-click='rlc.logIn()'><i class="fa fa-sign-in"></i>  LOG IN!</button></p>
+            <!-- <hr> -->
+            <br>
+            <!-- START Register prompt -->
+            <h4>Not a registered user?</h4>
+            <br>
+            <p class='cmdRegBtn'><a href="#!/register"><button type="button" name="cmdRegForm" ng-click='rlc.registerForm()' class='btn btn-info'><i class="fa fa-user-plus"></i>
+        REGISTER HERE!</button></a></p>
+            <!-- END Register prompt -->
         </div>
         <!-- END Log-in button -->
-
-        <!-- START Register prompt -->
-        <div class="form-group regPrompt">
-          <hr>
-          <br>
-          <label for="cmdRegForm"><h3>Not a registered user?</h3></label><br>
-          <div class="col-md-4 regBtn">
-            <a href="#!/register"><button type="button" name="cmdRegForm" ng-click='rlc.registerForm()'><i class="fa fa-user-plus"></i>
-        REGISTER HERE!</button></a>
-          </div>
-        </div>
-        <!-- END Register prompt -->
 
       </fieldset>
   </form>

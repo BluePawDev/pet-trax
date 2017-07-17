@@ -24,7 +24,6 @@ var pool = new pg.Pool(config);
 
 // START get pets POST
 router.post('/', function(req, res) {
-	console.log(req.body);
 	var user = req.body; // data from the client
 
 	// do database query to make a new todo

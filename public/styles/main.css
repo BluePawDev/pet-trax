@@ -1,3 +1,20 @@
+h1 {
+  font-weight: bold;
+  font-size: 43px;
+}
+
+h3 {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.myPets {
+  font-style: normal;
+  font-weight: 500;
+  color: #FFDF7B;
+}
+
+
 /* NG-VIEW */
 
 .view {
@@ -14,11 +31,15 @@
 }
 
 .form-horizontal {
-  width: 35%;
+  width: 38%;
   background-color: #F5F5F5;
+  height: 380px;
+  border-radius: 8px;
 }
 
 .form-group {
+  margin: 0 auto;
+  margin-top: 10px;
   width: 100%;
 }
 
@@ -27,30 +48,34 @@
   width: 80%;
 }
 
-.form-group, .logInBtn {
-  margin: 0 auto;
-  margin-top: 10px;
+legend {
+  padding: 10px 0 0 20px;
+  border-bottom-color: #A9A9A9;
 }
 
 .cmdLogIn {
-  margin: 0 auto;
-  display: flex;
-  height: 30px;
+  margin-top: 10px;
+  width: 120px;
+  height: 35px;
 }
 
-.regPrompt h4 {
-  /*text-align: left;*/
-  /*margin-left: 3%;*/
-  font-weight: 600;
-  margin: 0 auto;
+.notReg, .cmdRegBtn {
+  text-align: center;
 }
 
-input {
-  width: 100px;
+.cmdCancel {
+  width: 120px;
 }
+
+.logInField {
+  width: 40%;
+}
+
+
+/* TBI */
 
 .userEditInfo {
-  background-color: white;
+  background-color: #F5F5F5;
   width: 30%;
   margin: 0 auto;
   padding: 10px;
@@ -65,11 +90,13 @@ input {
 /* PET INFO DISPLAY */
 
 .petBlock {
-  border: 1px solid black;
+  border: 1px solid #112AB2;
   width: 50%;
   margin: 0 auto;
   margin-bottom: 15px;
   padding: 10px 35px;
+  box-shadow: 7px 9px 13px rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
 }
 
 .cardPetName {
@@ -79,13 +106,42 @@ input {
 
 .petCmdBtn {
   margin: 0 auto;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
 }
 
-button {
-  align-self: center;
+.addNewPetDiv {
+  background-color: #F5F5F5;
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px;
+  box-shadow: 7px 9px 13px rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+}
+
+.petInfoField {
+  height: 2em;
+  width: 70%;
+}
+
+.addPet {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cancelNewPet, .addNewPet {
+  width: 120px;
+  height: 35px;
+  /*display: flex;
+  justify-content: center;*/
+  text-align: center;
+  /*align-items: center;*/
+}
+
+.addCmdBtns {
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -94,12 +150,14 @@ button {
 .historyTbl {
   background-color: #fff;
   box-shadow: 7px 9px 13px rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
   width: 100%;
 }
 
 .histDate, .histPurp, .histWt, .histMed, .histCost, .histNote {
   padding: 0 5px;
   text-align: left;
+  font-size: .95em;
 }
 
 .histDate, .histWt {
@@ -108,36 +166,6 @@ button {
 
 .histCost {
   text-align: right;
-}
-
-
-/*.logInForm .regForm {
-  width: 60%;
-  align-items: : center;
-  margin: 0 auto;
-}*/
-
-.logInField {
-  width: 60%;
-}
-
-
-/*.logInGrp {
-  align-self: center;
-}*/
-
-legend {
-  padding-left: 15px;
-  border-bottom-color: #4460FF;
-}
-
-.regPrompt {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.regBtn {
-  width: 30%;
 }
 
 footer {
@@ -150,11 +178,11 @@ footer {
 
 header {
   position: fixed;
-  height: 115px;
+  height: 125px;
   top: 0;
   width: 100%;
   background-color: white;
-  border-bottom: blue;
+  border-bottom: 3px solid #BBC6FF;
 }
 
 body {

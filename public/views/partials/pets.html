@@ -1,22 +1,23 @@
 <!-- START pets.html -->
 <div>
   <div class="">
-    <h3>Info for {{pc.userFirst}}'s Pets</h3>
-    <p><button type='button' name='cmdAddPet' ng-click='pc.newPet()' ng-show='pc.petEdit'>New Pet</button></p>
+    <h3 class='myPets' ng-show='pc.headerH3'>Info for {{pc.userFirst}}'s Pets</h3>
+    <h3 class='myPets' ng-hide='pc.headerH3'>Health History for {{pc.txtPetName}}</h3>
+    <p class='addPet'><button class='btn btn-info' type='button' name='cmdAddPet' ng-click='pc.newPet()' ng-show='pc.buttonAddNewPet'>Add a New Pet</button></p>
   </div>
 
   <!-- START addNewPet  -->
-  <div class='petData_01 userEditInfo' ng-hide='pc.petEdit'>
+  <div class='addNewPetDiv' ng-show='pc.formAddNewPet'>
     <h4><b>Add your new pet, {{pc.userFirst}}!</b></h4>
 
     <!-- START txtPetName -->
-    <p><label for='txtPetName'>Name: </label>
-      <input type="text" name="txtPetName" value="" ng-model='pc.txtPetName'></p>
+    <p class='petInfoField'><label for='txtPetName'>Name: </label>
+      <input class="input-md " type="text" name="txtPetName" value="" ng-model='pc.txtPetName'></p>
     <!-- END txtPetName -->
 
     <!-- START selPetType -->
-    <p><label for='selPetType'>Type: </label>
-    <select class='petType' name='selPetType' ng-model='pc.selPetType'>
+    <p class='logInGrp'><label for='selPetType'>Type: </label>
+    <select class=" input-md logInField" name='selPetType' ng-model='pc.selPetType'>
       <option value='cat'>Cat</option>
       <option value='dog'>Dog</option>
     </select></p>
@@ -200,13 +201,18 @@
     <!-- START demPetDOB -->
 
     <!-- START command buttons -->
+    <div class="addCmdBtns">
+
       <!-- START addPet button -->
-    <button type="button" name="cmdAddPet" ng-click='pc.addPet()'>Add</button>
+      <p><button class='btn btn-success addNewPet' type="button" name="cmdAddPet" ng-click='pc.addPet()'><i class="fa fa-plus-square" ></i> Add Pet</button></p>
       <!-- END addPet button -->
 
       <!-- START cmdCancAddPet button -->
-    <button type="button" name="cmdCancAddPet" ng-click='pc.newPet()'>Cancel</button>
-      <!-- START cmdCancAddPet button -->
+      <p><button class='btn btn-danger cancelNewPet' type="button" name="cmdCancAddPet" ng-click='pc.cancelNewPet()'><i class="fa fa-ban"></i> Cancel</button></p>
+      <!-- END cmdCancAddPet button -->
+
+    </div>
+
     <!-- START command buttons -->
 
   </div>
@@ -214,11 +220,11 @@
 
 
   <!-- START display petData -->
-  <div class='petDataDisplay' ng-init='pc.getPets([pc.userEmail])' ng-show='pc.petHistory'>
+  <div class='petDataDisplay' ng-init='pc.getPets([pc.userEmail])' ng-show='pc.formPetCards'>
 
 
   <!-- START ng-repeat petData -->
-  <div ng-repeat='pet in pc.pets track by $index' class='userEditInfo petBlock' ng-show='pc.petEdit'>
+  <div ng-repeat='pet in pc.pets track by $index' class='userEditInfo petBlock' ng-show='pc.formPetCards'>
     <h4 class='cardPetName'>{{pet.txtpetname}}</h4>
     <p><b>Description: </b></p>
     <ul>
@@ -229,7 +235,7 @@
       <li ng-if='pet.txtsex === "Male (neutered)" || pet.txtsex === "Male (intact)"'>His coat is {{pet.txtcolor | lowercase}} with {{pet.txtmarking | lowercase }} markings</li>
     </ul>
     <div>
-      <p class="petCmdBtn"><button type="button" name="cmdHistory" ng-click='pc.getHealth([pet.id])'>History</button>
+      <p class="petCmdBtn"><button class='btn btn-info' type="button" name="cmdHistory" ng-click='pc.getHealth([pet.id])'>History</button>
       <!-- <button type="button" name="cmdEditPet" ng-click='pc.editPet()'>Edit</button> -->
     </p>
 
@@ -243,11 +249,12 @@
 
 </div>
 <!-- START healthHistory div -->
-<div class='healthHistory' ng-hide='pc.petHistory'>
-  <h4>Health History: {{pc.petName}}</h4>
+<div class='healthHistory' ng-show='pc.formPetHistory'>
+  <button class='btn btn-primary' type="button" name="button">Add Item</button>
+  <button class='btn btn-warning' type="button" name="button" ng-click='pc.historyDone()'>Done</button>
   <!-- <p><button type="button" name="cmdNewAppt">New Appointment</button></p> -->
   <!-- START health history table -->
-  <table class='historyTbl'>
+  <table class='historyTbl table table-striped'>
     <!-- START header row -->
     <thead>
       <tr>

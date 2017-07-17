@@ -8,8 +8,16 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	vm.userLast = localStorage.getItem('last:');
 	var email = vm.userEmail;
 
-	vm.petEdit = true;
-	vm.petHistory = true;
+	// vm.petEdit = true;
+
+	// SHOWS
+	vm.buttonAddNewPet = true;
+	vm.formAddNewPet = false;
+	vm.formPetHistory = false;
+	vm.formPetCards = true;
+	vm.formPetHistory = false;
+	vm.headerH3 = true;
+
 
 	vm.reload = function() {
 		$route.reload();
@@ -17,9 +25,13 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 
 	// START getPets
 	vm.getPets = function(userEmail) {
+		vm.buttonAddNewPet = true;
+		vm.formAddNewPet = false;
+		vm.formPetHistory = false;
+		vm.formPetCards = true;
+		vm.formPetHistory = false;
 		var email = userEmail[0];
 		PetService.getPets(email).then(function(petInfo) {
-			console.log(petInfo);
 			vm.pets = petInfo;
 		})
 	}
@@ -28,44 +40,37 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 
 	// START getHealth
 	vm.getHealth = function(petID) {
-		console.log('in getHealth()', petID);
+		vm.buttonAddNewPet = false;
+		vm.formAddNewPet = false;
+		vm.formPetHistory = true;
+		vm.formPetCards = false;
+		vm.headerH3 = !vm.headerH3;
 		var id = petID[0];
-		console.log('34:', vm.petHistory);
 		vm.showHideHistory();
-		console.log('36:', vm.petHistory);
-		console.log(id);
 		PetService.getHealth(id).then(function(healthInfo) {
 			vm.health = healthInfo;
-			console.log(vm.health);
 		})
 	}
 	// END getHealth
 
-	// START addPet with xeditable
-	// vm.addPet = function() {
-	// 	vm.petEdit = false;
-	// 	var newPet = {
-	// 		petName: vm.pet.name,
-	// 		petType: vm.pet.type,
-	// 		petBreed: vm.txtPetBreed,
-	// 		petColor: vm.txtPetColor,
-	// 		petMarking: vm.txtPetMarking,
-	// 		petSex: vm.selPetSex,
-	// 		petDOB: vm.dtmPetDOB,
-	// 		petOwner: vm.userEmail
-	// 	}
-	// 	PetService.addNewPet(newPet);
-	// 	vm.newPet();
-	// 	vm.getPets();
-	// }
-	// END addPet with xeditable
-
 
 	// START addNewPet
 	vm.newPet = function() {
-		vm.petEdit = !vm.petEdit;
+		vm.buttonAddNewPet = false;
+		vm.formAddNewPet = true;
+		vm.formPetHistory = false;
+		vm.formPetCards = false;
+		vm.formPetHistory = false;
 	}
 	// END addNewPet
+
+	vm.cancelNewPet = function() {
+		vm.buttonAddNewPet = true;
+		vm.formAddNewPet = false;
+		vm.formPetHistory = false;
+		vm.formPetCards = true;
+		vm.formPetHistory = false;
+	}
 
 	// START show/hide petHistory
 	vm.showHideHistory = function() {
@@ -76,7 +81,11 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 
 	// START addPet
 	vm.addPet = function() {
-		vm.petEdit = false;
+		vm.buttonAddNewPet = true;
+		vm.formAddNewPet = false;
+		vm.formPetHistory = false;
+		vm.formPetCards = true;
+		vm.formPetHistory = false;
 		var newPet = {
 			petName: vm.txtPetName,
 			petType: vm.selPetType,
@@ -92,6 +101,17 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	}
 	// // END addPet
 
+	vm.historyDone = function() {
+		vm.buttonAddNewPet = true;
+		vm.formAddNewPet = false;
+		vm.formPetHistory = false;
+		vm.formPetCards = true;
+		vm.formPetHistory = false;
+		vm.headerH3 = !vm.headerH3;
+
+
+	}
+
 
 	// START editPet
 	vm.editPet = function() {
@@ -100,24 +120,6 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	}
 	// END editPet
 
-
-	// vm.petTypes = [{
-	// 		value: 1,
-	// 		text: 'Bird'
-	// 	},
-	// 	{
-	// 		value: 2,
-	// 		text: 'Cat'
-	// 	},
-	// 	{
-	// 		value: 3,
-	// 		text: 'Dog'
-	// 	},
-	// 	{
-	// 		value: 4,
-	// 		text: 'Rabbit'
-	// 	}
-	// ];
 
 
 
