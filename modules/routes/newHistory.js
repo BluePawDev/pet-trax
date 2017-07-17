@@ -22,25 +22,30 @@ var config = {
 
 var pool = new pg.Pool(config);
 
-// START get pets POST
-router.post('/', function(req, res) {
-	var user = req.body; // data from the client
 
-	// do database query to make a new todo
+// START update health POST
+router.post('/', function(req, res) {
+	var id = req.body.id;
+	var date = req.body.date;
+	var purpose = req.body.purpose;
+	var wt = req.body.wt;
+	var meds = req.body.meds;
+	var cost = req.body.cost;
+	var notes = req.body.notes;
 	pool.connect()
 		.then(function(client) {
-			client.query("SELECT dtmdate, txtpurpose, intweight, txtmeds, curcost, txtnotes FROM tblhistory JOIN tblpet ON tblhistory.fk_petid = tblpet.id WHERE fk_petid = '" + req.body.id + "'ORDER BY dtmdate DESC").then(function(petHealth) {
-				client.release();
-				res.send(petHealth.rows);
-			});
+			client.query("INSERT INTO tblhistory (dtmdate, txtpurpose, intweight, txtmeds, curcost, txtnotes, fk_petid) VALUES ('" + date + "','" + purpose + "','" + wt + "','" + meds + "','" + cost + "','" + notes + "','" + id + "')")
+				.then(function(petHealth) {
+					client.release();
+					res.send(petHealth.rows);
+				});
 		})
 		.catch(function(err) {
 			client.release();
 			res.sendStatus(500); // server error
 		});
 });
-// END get pets POST
-
+// END update health PUT
 
 
 /* EXPORTS for history.js */

@@ -11,6 +11,8 @@ var home = require('./modules/routes/home');
 var newPet = require('./modules/routes/newPet');
 var pets = require('./modules/routes/pets');
 var history = require('./modules/routes/history');
+var newhistory = require('./modules/routes/newhistory');
+
 
 
 /* USES for server.js */
@@ -19,6 +21,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
+app.use('/newhistory', newhistory);
 app.use('/pets', pets);
 app.use('/register', register);
 app.use('/login', login);

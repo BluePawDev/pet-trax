@@ -26,6 +26,10 @@ myApp.config(function($routeProvider) {
 			templateUrl: 'views/partials/history.html',
 			controller: 'PetController as pc'
 		})
+		.when('/newhistory', {
+			templateUrl: 'views/partials/pets.html',
+			controller: 'PetController as pc'
+		})
 		.when('/vetdata', {
 			templateUrl: 'views/partials/vetdata.html'
 		})

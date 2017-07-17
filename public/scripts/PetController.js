@@ -148,7 +148,6 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	}
 
 	vm.AddHealthHistory = function() {
-		// console.log('in AddHealthHistory()');
 		// cmd buttons
 		vm.buttonAddHistory = true;
 		vm.buttonDoneHistory = true;
@@ -160,6 +159,7 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 		vm.formNewHealthHistory = false;
 		vm.headerH3 = true;
 		var newHistory = {
+			id: 45,
 			date: vm.newHistDate,
 			purpose: vm.newHistPurp,
 			wt: vm.newHistWt,
