@@ -250,7 +250,7 @@
 </div>
 <!-- START healthHistory div -->
 <div class='healthHistory' ng-show='pc.formPetHistory'>
-  <button class='btn btn-primary' type="button" name="button">Add Item</button>
+  <button class='btn btn-primary' type="button" name="button" ng-click='pc.AddHealthHistory()'>Add Item</button>
   <button class='btn btn-warning' type="button" name="button" ng-click='pc.historyDone()'>Done</button>
   <!-- <p><button type="button" name="cmdNewAppt">New Appointment</button></p> -->
   <!-- START health history table -->
@@ -284,4 +284,55 @@
 
 </div>
 <!-- END healthHistory div -->
+
+
+<!-- START newHealthHistory div -->
+<div class='healthHistory' ng-show='pc.formNewHealthHistory'>
+  <button class='btn btn-primary' type="button" name="button">Add Item</button>
+  <button class='btn btn-warning' type="button" name="button" ng-click='pc.historyDone()'>Done</button>
+  <!-- <p><button type="button" name="cmdNewAppt">New Appointment</button></p> -->
+  <!-- START health history table -->
+  <table class='historyTbl table table-striped'>
+    <!-- START header row -->
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Purpose</th>
+        <th>Weight</th>
+        <th>Meds</th>
+        <th>Cost</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <!-- END header row -->
+
+    <!-- START data -->
+    <tbody>
+      <tr>
+        <td class='histDate' ng-model=''><input type="date" name="txtHistDate" value=""></td>
+        <td class='histPurp' ng-model=''><input type="text" name="txtHistPurp" value=""></td>
+        <td class='histWt' ng-model=''><input type="text" name="txtHistWt" value=""></td>
+        <td class='histMed' ng-model=''><input type="text" name="txtHistMed" value=""></td>
+        <td class='histCost' ng-model=''><input type="text" name="txtHistCost" value=""></td>
+        <td class='histNote' ng-model=''><input type="text" name="txtHistNote" value=""></td>
+      </tr>
+      <p><button type="button" name="button">Save Item</button></p>
+      <p><button type="button" name="button">Cancel</button></p>
+
+    </tbody>
+
+    <!-- END data -->
+  </table>
+  <div class="col-md-8">
+
+    <p><button ng-click='rlc.registerUser()' id="cmdRegister" name="cmdRegister" class="btn btn-success cmdRegBtn"><i class="fa fa-user-plus"></i> Save Item</button></p>
+
+    <p><a href="#!/"><button ng-click='rlc.goLogin()' id="cmdCancel" name="cmdCancel" class="btn btn-danger cmdRegBtn cmdCancel"><i class="fa fa-hand-paper-o"></i> Cancel </button></a></p>
+
+  </div>
+
+</div>
+<!-- END newHealthHistory div -->
+
+
 <!-- END pets.html -->

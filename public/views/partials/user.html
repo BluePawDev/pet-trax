@@ -5,7 +5,11 @@
   <div class="userInfoDisplay userEditInfo">
     <p><b>User: </b>{{uc.userFirst}} {{uc.userLast}}</p>
     <p><b>Email: </b>{{uc.userEmail}}</p>
-    <p><button type="button" name="cmdUserEdit" ng-show='uc.editUserHide' ng-click='uc.editUser()'>Edit</button></p>
+    <div class="cmdUserEdit">
+      <p><button class='cmdUserEdit btn btn-info'type="button" name="cmdUserEdit" ng-show='uc.editUserHide' ng-click='uc.editUser()'>Edit</button></p>
+
+    </div>
+
   </div>
   <!-- END Display User Info -->
 
@@ -33,8 +37,15 @@
         <input ng-model='rlc.hypEmail' id="textinput" name="hypEmail" type="email" class="form-control input-md userEditField" required="" value="{{uc.userEmail}}"></p>
       </div>
       <!-- END hypEmail input-->
-      <button type="button" name="cmdEditUserSave" ng-click='uc.editUserSave()'>Save</button>
-      <button type="button" name="cmdEditUserCancel" ng-click='uc.editUserCancel()'>Cancel</button>
+
+      <div class="editUserInfoCmdDiv">
+        <p><button class='cmdEditUserSave btn btn-success fa fa-user-plus' type="button" name="cmdEditUserSave" ng-click='uc.editUserSave()'>Save</button></p>
+        <br>
+        <p><button class='cmdEditUserCancel fa fa-hand-paper-o' type="button" name="cmdEditUserCancel" ng-click='uc.editUserCancel()'>Cancel</button></p>
+
+
+      </div>
+
     </div>
   </form>
   <!-- END Edit User Info -->

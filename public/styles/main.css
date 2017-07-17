@@ -209,3 +209,20 @@ nav-pills {
 .navbar-light {
   padding-right: 10%;
 }
+
+
+/* USER DISPLAY */
+
+.userInfoDisplay .editUserInfoCmdDiv {
+  box-shadow: 7px 9px 13px rgba(0, 0, 0, 0.8);
+  border-radius: 8px 8px 0 0;
+}
+
+.cmdUserEdit, .editUserInfoCmdDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.cmdEditUserSave {
+  /*font-family: Helvetica, Arial, sans-serif;*/
+}

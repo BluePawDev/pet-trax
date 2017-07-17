@@ -16,6 +16,7 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 	vm.formPetHistory = false;
 	vm.formPetCards = true;
 	vm.formPetHistory = false;
+	vm.formNewHealthHistory = false;
 	vm.headerH3 = true;
 
 
@@ -108,7 +109,18 @@ myApp.controller('PetController', function(PetService, RegLoginService, $locatio
 		vm.formPetCards = true;
 		vm.formPetHistory = false;
 		vm.headerH3 = !vm.headerH3;
+	}
 
+	vm.AddHealthHistory = function() {
+		console.log('in AddHealthHistory()');
+		vm.buttonAddNewPet = false;
+		vm.formAddNewPet = false;
+		vm.formPetHistory = false;
+		vm.formPetCards = false;
+		vm.formPetHistory = false;
+		vm.formNewHealthHistory = true;
+
+		vm.headerH3 = true;
 
 	}
 
