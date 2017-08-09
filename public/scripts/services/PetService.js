@@ -44,13 +44,13 @@ myApp.service('PetService', function($http, $location) {
 	// END getHealth
 
 	// START newHealth
-	sv.newHealth = function(newHistory) {
-		console.log('newHistory obj in sv.newHealth', newHistory);
-		return $http.post('/newhistory', newHistory).then(function(response) {
-			console.log(response);
-		})
-
-	}
+	// sv.newHealth = function(newHistory) {
+	// 	console.log('newHistory obj in sv.newHealth', newHistory);
+	// 	return $http.post('/newhistory', newHistory).then(function(response) {
+	// 		console.log(response);
+	// 	})
+	//
+	// }
 
 	// END newHealth
 
