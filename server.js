@@ -11,7 +11,7 @@ var home = require('./modules/routes/home');
 var newPet = require('./modules/routes/newPet');
 var pets = require('./modules/routes/pets');
 var history = require('./modules/routes/history');
-var newhistory = require('./modules/routes/newhistory');
+// var newhistory = require('./modules/routes/newhistory');
 var DATABASE_URL = 'postgres://yvxriipgbsiioa:912ba03e78d1838015e751a8280b51554625e3273f435723bf78c021f7453e30@ec2-184-72-248-8.compute-1.amazonaws.com:5432/d3es631bga9li5'
 
 
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-app.use('/newhistory', newhistory);
+// app.use('/newhistory', newhistory);
 app.use('/pets', pets);
 app.use('/register', register);
 app.use('/login', login);
