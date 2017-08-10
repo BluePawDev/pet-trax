@@ -43,7 +43,7 @@ app.listen(port, function() {
 		connectionString = process.env.DATABASE_URL;
 		pg.defaults.ssl = true;
 	} else {
-		connectionString = 'postgres://localhost:5432/';
+		connectionString = 'postgres://localhost:3000/';
 	}
 
 	console.log("connectionString set to: ", connectionString);
