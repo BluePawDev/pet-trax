@@ -12,6 +12,7 @@ var newPet = require('./modules/routes/newPet');
 var pets = require('./modules/routes/pets');
 var history = require('./modules/routes/history');
 var newhistory = require('./modules/routes/newhistory');
+var DATABASE_URL = 'postgres://yvxriipgbsiioa:912ba03e78d1838015e751a8280b51554625e3273f435723bf78c021f7453e30@ec2-184-72-248-8.compute-1.amazonaws.com:5432/d3es631bga9li5'
 
 
 
@@ -36,4 +37,18 @@ var port = process.env.PORT || 3000;
 // Listen
 app.listen(port, function() {
 	console.log('Listening on port:', port);
+	var connectionString = 'postgres://yvxriipgbsiioa:912ba03e78d1838015e751a8280b51554625e3273f435723bf78c021f7453e30@ec2-184-72-248-8.compute-1.amazonaws.com:5432/d3es631bga9li5';
+	if (process.env.DATABASE_URL !== undefined) {
+		console.log('env connection string');
+		connectionString = process.env.DATABASE_URL;
+		pg.defaults.ssl = true;
+	} else {
+		connectionString = 'postgres://localhost:5432/';
+	}
+
+	console.log("connectionString set to: ", connectionString);
+
+	module.exports = connectionString;
+
+
 }); // END server spin-up
