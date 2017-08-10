@@ -1,8 +1,8 @@
 ![Pet Trax logo](/public/images/blue-paw-logo.png)
 # Pet Trax
 ### Description
-Developed: 07/05/17 - 07/14/17
-Deployed: [Pet Trax](https://pet-trax.herokuapp.com)
+- Developed: 07/05/17 - 07/14/17
+- Deployed: [Pet Trax](https://pet-trax.herokuapp.com)
 Pet Trax is a full-stack web application allowing pet owners to:
 - Create a personal account to log-in;
 - Track pet(s):
