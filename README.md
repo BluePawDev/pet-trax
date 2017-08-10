@@ -2,8 +2,7 @@
 # Pet Trax :dog:
 #### Date(s)
 07/05/17 - 07/14/17
-#### Deployed
-**Heroku**: [Pet Trax](https://pet-trax.herokuapp.com)
+#### Deployed: [Pet Trax](https://pet-trax.herokuapp.com)
 ### Description
 Pet Trax is a full-stack web application allowing pet owners to:
 - Create a personal account to log-in;
