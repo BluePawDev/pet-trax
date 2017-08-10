@@ -1,7 +1,7 @@
 ![Pet Trax logo](/public/images/blue-paw-logo.png)
 # Pet Trax
 ##### Deployed
-*Heroku*: [Pet Trax](https://pet-trax.herokuapp.com)
+_Heroku_: [Pet Trax](https://pet-trax.herokuapp.com)
 #### Date(s)
 07/05/17 - 07/14/17
 ### Description
