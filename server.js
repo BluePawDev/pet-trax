@@ -11,7 +11,7 @@ var home = require('./modules/routes/home');
 var newPet = require('./modules/routes/newPet');
 var pets = require('./modules/routes/pets');
 var history = require('./modules/routes/history');
-// var newhistory = require('./modules/routes/newhistory');
+var newhistory = require('./modules/routes/newhistory');
 
 
 
