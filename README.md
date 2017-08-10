@@ -1,5 +1,5 @@
 ![Pet Trax logo](/public/images/blue-paw-logo.png)
-# Pet Trax
+# Pet Trax :dog:
 #### Date(s)
 07/05/17 - 07/14/17
 #### Deployed
